@@ -10,6 +10,7 @@ module dbrestaurant.dbrestaurant {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens dbrestaurant.dbrestaurant to javafx.fxml;
     exports dbrestaurant.dbrestaurant;
