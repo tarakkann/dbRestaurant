@@ -6,19 +6,15 @@ import dbrestaurant.dbrestaurant.models.DishModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -52,10 +48,9 @@ public class DishController {
 
     Connection connection = null;
     PreparedStatement pst = null;
-    ResultSet rs = null;
+
     ObservableList<Dishes> dishList;
-    private Stage stage;
-    private Scene scene;
+
     DishModel dishModel = new DishModel();
 
     public ResourceBundle getResources() {

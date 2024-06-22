@@ -10,11 +10,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class DishModel {
-    private Stage stage;
-    private Scene scene;
-    public void switchToMenuScene(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menu.fxml"));
+public class RegistrationModel {
+    Scene scene;
+    Stage stage;
+
+    public void switchToHomeScene(ActionEvent event) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);

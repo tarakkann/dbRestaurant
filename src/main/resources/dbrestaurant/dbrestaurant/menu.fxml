@@ -22,7 +22,7 @@
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="ingridientList" layoutX="198.0" layoutY="221.0" mnemonicParsing="false" style="-fx-background-color: #596C68;" text="Список ингредиентов" textFill="WHITE">
+        <Button fx:id="ingridientList" layoutX="198.0" layoutY="221.0" mnemonicParsing="false" onAction="#switchToIngridientsScene" style="-fx-background-color: #596C68;" text="Список ингредиентов" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>

@@ -104,4 +104,9 @@ public class MenuController {
     void switchToDishScene(ActionEvent event) throws IOException {
         menuModel.switchToDishScene(event);
     }
+
+    @FXML
+    void switchToIngridientsScene(ActionEvent event) throws IOException {
+        menuModel.switchToIngridientScene(event);
+    }
 }

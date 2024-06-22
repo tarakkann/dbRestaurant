@@ -38,4 +38,17 @@ public class DataConnection {
         }
         return list;
     }
+    public static ObservableList<Ingridients> getIngridient() throws SQLException, ClassNotFoundException{
+        Connection connection1 = getDBConnection();
+        ObservableList<Ingridients> list = FXCollections.observableArrayList();
+        PreparedStatement ps = connection1.prepareStatement("SELECT * FROM ingridients");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            list.add(new Ingridients(Integer.parseInt(rs.getString("ingredient_id")),
+                    rs.getString("name"),
+                    rs.getString("unit"),
+                    Double.parseDouble(rs.getString("quantity"))));
+        }
+        return list;
+    }
 }
