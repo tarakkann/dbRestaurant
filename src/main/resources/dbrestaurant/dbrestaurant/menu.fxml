@@ -27,7 +27,7 @@
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="clientsList" layoutX="198.0" layoutY="303.0" mnemonicParsing="false" style="-fx-background-color: #596C68;" text="Список клиентов" textFill="WHITE">
+        <Button fx:id="clientsList" layoutX="198.0" layoutY="303.0" mnemonicParsing="false" onAction="#switchToClientsScene" style="-fx-background-color: #596C68;" text="Список клиентов" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>

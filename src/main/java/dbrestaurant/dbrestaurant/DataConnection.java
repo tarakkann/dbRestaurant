@@ -13,7 +13,6 @@ public class DataConnection {
     }
 
     public static ObservableList<Waiters> getWaiter() throws SQLException, ClassNotFoundException{
-
         Connection connection1 = getDBConnection();
         ObservableList<Waiters> list = FXCollections.observableArrayList();
         PreparedStatement ps = connection1.prepareStatement("SELECT * FROM waiters");
@@ -48,6 +47,19 @@ public class DataConnection {
                     rs.getString("name"),
                     rs.getString("unit"),
                     Double.parseDouble(rs.getString("quantity"))));
+        }
+        return list;
+    }
+
+    public static ObservableList<Clients> getClient() throws SQLException, ClassNotFoundException{
+        Connection connection1 = getDBConnection();
+        ObservableList<Clients> list = FXCollections.observableArrayList();
+        PreparedStatement ps = connection1.prepareStatement("SELECT * FROM clients");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            list.add(new Clients(Integer.parseInt(rs.getString("client_id")),
+                    rs.getString("name"),
+                    rs.getString("address"), rs.getString("tax_id")));
         }
         return list;
     }
