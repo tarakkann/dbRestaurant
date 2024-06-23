@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class RegistrationModel {
-    Scene scene;
-    Stage stage;
+    private Scene scene;
+    private Stage stage;
 
     public void switchToHomeScene(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
@@ -21,4 +21,12 @@ public class RegistrationModel {
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToMenuScene(ActionEvent event) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menu.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

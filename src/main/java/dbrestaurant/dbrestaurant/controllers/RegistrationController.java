@@ -1,13 +1,24 @@
 package dbrestaurant.dbrestaurant.controllers;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import dbrestaurant.dbrestaurant.models.RegistrationModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import java.io.IOException;
 
 public class RegistrationController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
     @FXML
     private TextField adressField;
 
@@ -24,11 +35,26 @@ public class RegistrationController {
     private Button registrationButton;
 
     @FXML
-    private TextField passwordField;
+    private CheckBox userField;
 
+    @FXML
+    private CheckBox waitersField;
     RegistrationModel registrationModel = new RegistrationModel();
 
-    public void switchToHomeScene(ActionEvent event) throws IOException {
+    @FXML
+    void switchToHomeScene(ActionEvent event) throws IOException {
         registrationModel.switchToHomeScene(event);
     }
+
+    @FXML
+    void switchToMenuScene(ActionEvent event) throws IOException {
+        registrationModel.switchToMenuScene(event);
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+
+
 }
