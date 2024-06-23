@@ -34,7 +34,7 @@
                 <Font size="19.0" />
             </font>
         </Button>
-        <Button fx:id="registrationButton" layoutX="291.0" layoutY="357.0" mnemonicParsing="false" onAction="#switchToMenuScene" prefHeight="43.0" prefWidth="231.0" style="-fx-background-color: #596C68;" text="Зарегистрироваться" textFill="WHITE">
+        <Button fx:id="registrationButton" layoutX="291.0" layoutY="357.0" mnemonicParsing="false" onAction="#reg" prefHeight="43.0" prefWidth="231.0" style="-fx-background-color: #596C68;" text="Зарегистрироваться" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>

@@ -1,5 +1,4 @@
 package dbrestaurant.dbrestaurant.models;
 
-public class RegistrationSignIn {
-
+public class SignInModel {
 }

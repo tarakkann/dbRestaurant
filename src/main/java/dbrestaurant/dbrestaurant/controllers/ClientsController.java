@@ -187,7 +187,7 @@ public class ClientsController {
 
     @FXML
     void initialize() {
-        clientsIdColumn.setCellValueFactory(new PropertyValueFactory<>("client_id"));
+        clientsIdColumn.setCellValueFactory(new PropertyValueFactory<>("clients_id"));
         clientsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         clientsAddressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
         clientsTaxIdColumn.setCellValueFactory(new PropertyValueFactory<>("tax_id"));
