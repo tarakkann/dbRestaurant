@@ -21,13 +21,18 @@
                 <TableColumn fx:id="dishNameColumn" prefWidth="99.33332824707031" text="name" />
             </columns>
         </TableView>
-        <TextField fx:id="dishId" layoutX="408.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" />
-        <TextField fx:id="dishName" layoutX="508.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" />
+        <TextField fx:id="dishId" layoutX="408.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="dish_id" />
+        <TextField fx:id="dishName" layoutX="508.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="name" />
         <Button fx:id="addButton" layoutX="760.0" layoutY="110.0" mnemonicParsing="false" onAction="#addDish" style="-fx-background-color: #596C68;" text="Добавить" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
         </Button>
+      <Button fx:id="updateButton" layoutX="760.0" layoutY="166.0" mnemonicParsing="false" onAction="#addDish" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
     </AnchorPane>
     <Text fill="WHITE" layoutX="244.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
         <font>

@@ -15,23 +15,27 @@
                 <Font size="19.0" />
             </font>
         </Button>
-        <TableView fx:id="clientsTable" layoutX="227.0" layoutY="123.0" prefHeight="200.0" prefWidth="407.0">
+        <TableView fx:id="clientsTable" layoutX="227.0" layoutY="123.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="407.0">
             <columns>
                 <TableColumn fx:id="clientsIdColumn" prefWidth="98.66668701171875" text="clients_id" />
                 <TableColumn fx:id="clientsNameColumn" prefWidth="99.33332824707031" text="name" />
             <TableColumn fx:id="clientsAddressColumn" prefWidth="99.33332824707031" text="address" />
-            <TableColumn fx:id="clientsTaxIdColumn" prefWidth="99.33332824707031" text="tax_id" />
+            <TableColumn fx:id="clientsTaxIdColumn" prefWidth="106.6666259765625" text="tax_id" />
             </columns>
         </TableView>
-        <TextField fx:id="clientsId" layoutX="227.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" />
-        <TextField fx:id="clientsName" layoutX="329.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" />
+        <TextField fx:id="clientsId" layoutX="227.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="id" />
+        <TextField fx:id="clientsName" layoutX="329.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="name" />
         <Button fx:id="addButton" layoutX="760.0" layoutY="110.0" mnemonicParsing="false" onAction="#addClients" style="-fx-background-color: #596C68;" text="Добавить" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
         </Button>
-      <TextField fx:id="clientsAddress" layoutX="430.0" layoutY="97.0" prefHeight="25.0" prefWidth="96.0" />
-      <TextField fx:id="clientsTaxId" layoutX="526.0" layoutY="97.0" prefHeight="25.0" prefWidth="108.0" />
+      <TextField fx:id="clientsAddress" layoutX="430.0" layoutY="97.0" prefHeight="25.0" prefWidth="96.0" promptText="address" />
+      <TextField fx:id="clientsTaxId" layoutX="526.0" layoutY="97.0" prefHeight="25.0" prefWidth="108.0" promptText="tax_id" />
+      <Button fx:id="updateButton" layoutX="755.0" layoutY="179.0" mnemonicParsing="false" onAction="#updateClients" prefHeight="43.0" prefWidth="124.0" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="19.0" />
+         </font></Button>
     </AnchorPane>
     <Text fill="WHITE" layoutX="244.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
         <font>
