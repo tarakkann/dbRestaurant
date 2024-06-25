@@ -15,7 +15,7 @@
                 <Font size="19.0" />
             </font>
         </Button>
-        <TableView fx:id="dishTable" layoutX="408.0" layoutY="123.0" prefHeight="200.0" prefWidth="200.0">
+        <TableView fx:id="dishTable" layoutX="408.0" layoutY="123.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="200.0">
             <columns>
                 <TableColumn fx:id="dishIdColumn" prefWidth="98.66668701171875" text="dish_id" />
                 <TableColumn fx:id="dishNameColumn" prefWidth="99.33332824707031" text="name" />
@@ -28,7 +28,7 @@
                 <Font size="20.0" />
             </font>
         </Button>
-      <Button fx:id="updateButton" layoutX="760.0" layoutY="166.0" mnemonicParsing="false" onAction="#addDish" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+      <Button fx:id="updateButton" layoutX="760.0" layoutY="166.0" mnemonicParsing="false" onAction="#updateDish" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

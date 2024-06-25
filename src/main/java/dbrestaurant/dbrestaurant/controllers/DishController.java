@@ -11,6 +11,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -45,6 +47,8 @@ public class DishController {
 
     @FXML
     private TableView<Dishes> dishTable;
+    @FXML
+    private Button updateButton;
 
     Connection connection = null;
     PreparedStatement pst = null;
@@ -124,6 +128,7 @@ public class DishController {
     public void setDishTable(TableView<Dishes> dishTable) {
         this.dishTable = dishTable;
     }
+    int index = -1;
 
     @FXML
     void switchToMenuScene(ActionEvent event) throws IOException {
@@ -150,6 +155,25 @@ public class DishController {
         pst.setString(1, dishName.getText());
         pst.executeUpdate();
     }
+    @FXML
+    void updateDish(ActionEvent event) throws SQLException, ClassNotFoundException {
+        connection = DataConnection.getDBConnection();
+        String value1 = dishId.getText();
+        String value2 = dishName.getText();
 
+
+        String sql = "UPDATE dishes SET dish_id = '"+value1+"', name = '"+value2+"' WHERE dish_id = '"+value1+"' ";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.execute();
+    }
+    @FXML
+    void getSelected(MouseEvent event) throws IOException {
+        index = dishTable.getSelectionModel().getSelectedIndex();
+        if (index <= -1){
+            return;
+        }
+        dishId.setText(dishIdColumn.getCellData(index).toString());
+        dishName.setText(dishNameColumn.getCellData(index));
+    }
 
 }
