@@ -1,6 +1,5 @@
 package dbrestaurant.dbrestaurant.controllers;
 
-import dbrestaurant.dbrestaurant.DataConnection;
 import dbrestaurant.dbrestaurant.Dishes;
 import dbrestaurant.dbrestaurant.models.DishModel;
 import javafx.collections.ObservableList;
@@ -10,14 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DishController {
@@ -48,131 +43,57 @@ public class DishController {
 
     @FXML
     private TableView<Dishes> dishTable;
+
     @FXML
     private Button updateButton;
 
-    Connection connection = null;
-    PreparedStatement pst = null;
+    private ObservableList<Dishes> dishList;
 
-    ObservableList<Dishes> dishList;
-
-    DishModel dishModel = new DishModel();
-
-    public ResourceBundle getResources() {
-        return resources;
-    }
-
-    public void setResources(ResourceBundle resources) {
-        this.resources = resources;
-    }
-
-    public URL getLocation() {
-        return location;
-    }
-
-    public void setLocation(URL location) {
-        this.location = location;
-    }
-
-    public Button getAddButton() {
-        return addButton;
-    }
-
-    public void setAddButton(Button addButton) {
-        this.addButton = addButton;
-    }
-
-    public Button getBackField() {
-        return backField;
-    }
-
-    public void setBackField(Button backField) {
-        this.backField = backField;
-    }
-
-    public TextField getDishId() {
-        return dishId;
-    }
-
-    public void setDishId(TextField dishId) {
-        this.dishId = dishId;
-    }
-
-    public TableColumn<Dishes, Integer> getDishIdColumn() {
-        return dishIdColumn;
-    }
-
-    public void setDishIdColumn(TableColumn<Dishes, Integer> dishIdColumn) {
-        this.dishIdColumn = dishIdColumn;
-    }
-
-    public TextField getDishName() {
-        return dishName;
-    }
-
-    public void setDishName(TextField dishName) {
-        this.dishName = dishName;
-    }
-
-    public TableColumn<Dishes, String> getDishNameColumn() {
-        return dishNameColumn;
-    }
-
-    public void setDishNameColumn(TableColumn<Dishes, String> dishNameColumn) {
-        this.dishNameColumn = dishNameColumn;
-    }
-
-    public TableView<Dishes> getDishTable() {
-        return dishTable;
-    }
-
-    public void setDishTable(TableView<Dishes> dishTable) {
-        this.dishTable = dishTable;
-    }
-    int index = -1;
-
-    @FXML
-    void switchToMenuScene(ActionEvent event) throws IOException {
-        dishModel.switchToMenuScene(event);
-    }
+    private final DishModel dishModel = new DishModel();
 
     @FXML
     void initialize() {
-        dishIdColumn.setCellValueFactory(new PropertyValueFactory<>("dish_id"));
-        dishNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        dishModel.initializeDishTable(dishIdColumn, dishNameColumn);
         try {
-            dishList = DataConnection.getDish();
-        } catch (ClassNotFoundException | SQLException e) {
+            dishList = dishModel.getDishes();
+            dishTable.setItems(dishList);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        dishTable.setItems(dishList);
     }
 
     @FXML
-    void addDish() throws SQLException, ClassNotFoundException {
-        connection = DataConnection.getDBConnection();
-        String sql = "INSERT INTO DISHES (name) VALUES (?)";
-        pst = connection.prepareStatement(sql);
-        pst.setString(1, dishName.getText());
-        pst.executeUpdate();
+    void addDish() {
+        try {
+            dishModel.addDish(dishName.getText());
+            dishList.setAll(dishModel.getDishes());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
+
     @FXML
-    void updateDish(ActionEvent event) throws SQLException, ClassNotFoundException {
-        connection = DataConnection.getDBConnection();
-        String value1 = dishId.getText();
-        String value2 = dishName.getText();
-        String sql = "UPDATE dishes SET id = '"+value1+"', name = '"+value2+"' WHERE id = '"+value1+"' ";
-        PreparedStatement pst = connection.prepareStatement(sql);
-        pst.execute();
+    void updateDish(ActionEvent event) {
+        try {
+            dishModel.updateDish(dishId.getText(), dishName.getText());
+            dishList.setAll(dishModel.getDishes());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
+
     @FXML
-    void getSelected(MouseEvent event) throws IOException {
-        index = dishTable.getSelectionModel().getSelectedIndex();
-        if (index <= -1){
+    void getSelected(MouseEvent event) {
+        int index = dishTable.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
             return;
         }
         dishId.setText(dishIdColumn.getCellData(index).toString());
         dishName.setText(dishNameColumn.getCellData(index));
     }
 
+    @FXML
+    void switchToMenuScene(ActionEvent event) throws IOException {
+        dishModel.switchToMenuScene(event);
+    }
 }
