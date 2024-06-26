@@ -1,6 +1,6 @@
 package dbrestaurant.dbrestaurant.controllers;
 
-import dbrestaurant.dbrestaurant.Clients;
+import dbrestaurant.dbrestaurant.Client;
 import dbrestaurant.dbrestaurant.models.ClientsModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,33 +31,33 @@ public class ClientsController {
     private TextField clientsAddress;
 
     @FXML
-    private TableColumn<Clients, String> clientsAddressColumn;
+    private TableColumn<Client, String> clientsAddressColumn;
 
     @FXML
     private TextField clientsId;
 
     @FXML
-    private TableColumn<Clients, Integer> clientsIdColumn;
+    private TableColumn<Client, Integer> clientsIdColumn;
 
     @FXML
     private TextField clientsName;
 
     @FXML
-    private TableColumn<Clients, String> clientsNameColumn;
+    private TableColumn<Client, String> clientsNameColumn;
 
     @FXML
     private TextField clientsTaxId;
 
     @FXML
-    private TableColumn<Clients, String> clientsTaxIdColumn;
+    private TableColumn<Client, String> clientsTaxIdColumn;
 
     @FXML
-    private TableView<Clients> clientsTable;
+    private TableView<Client> clientsTable;
 
     @FXML
     private Button updateButton;
 
-    private ObservableList<Clients> clientsList;
+    private ObservableList<Client> clientList;
 
     private final ClientsModel clientsModel = new ClientsModel();
 
@@ -68,8 +68,8 @@ public class ClientsController {
         clientsAddressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
         clientsTaxIdColumn.setCellValueFactory(new PropertyValueFactory<>("tax_id"));
         try {
-            clientsList = clientsModel.getClientsList();
-            clientsTable.setItems(clientsList);
+            clientList = clientsModel.getClientsList();
+            clientsTable.setItems(clientList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -79,7 +79,7 @@ public class ClientsController {
     void addClient() {
         try {
             clientsModel.addClient(clientsName.getText(), clientsAddress.getText(), clientsTaxId.getText());
-            clientsList.setAll(clientsModel.getClientsList());
+            clientList.setAll(clientsModel.getClientsList());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +89,7 @@ public class ClientsController {
     void updateClient() {
         try {
             clientsModel.updateClient(clientsId.getText(), clientsName.getText(), clientsAddress.getText(), clientsTaxId.getText());
-            clientsList.setAll(clientsModel.getClientsList());
+            clientList.setAll(clientsModel.getClientsList());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

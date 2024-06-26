@@ -1,6 +1,6 @@
 package dbrestaurant.dbrestaurant.models;
 
-import dbrestaurant.dbrestaurant.Clients;
+import dbrestaurant.dbrestaurant.Client;
 import dbrestaurant.dbrestaurant.DataConnection;
 import dbrestaurant.dbrestaurant.HelloApplication;
 import javafx.collections.FXCollections;
@@ -23,19 +23,19 @@ public class ClientsModel {
     private Stage stage;
     private Scene scene;
 
-    public ObservableList<Clients> getClientsList() throws SQLException, ClassNotFoundException {
-        ObservableList<Clients> clientsList = FXCollections.observableArrayList();
+    public ObservableList<Client> getClientsList() throws SQLException, ClassNotFoundException {
+        ObservableList<Client> clientList = FXCollections.observableArrayList();
         Connection connection = DataConnection.getDBConnection();
         String query = "SELECT * FROM clients";
         PreparedStatement pst = connection.prepareStatement(query);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
-            clientsList.add(new Clients(rs.getInt("id"), rs.getString("name"), rs.getString("address"), rs.getString("tax_id")));
+            clientList.add(new Client(rs.getInt("id"), rs.getString("name"), rs.getString("address"), rs.getString("tax_id")));
         }
         rs.close();
         pst.close();
         connection.close();
-        return clientsList;
+        return clientList;
     }
 
     public void addClient(String name, String address, String taxId) throws SQLException, ClassNotFoundException {

@@ -1,12 +1,12 @@
 package dbrestaurant.dbrestaurant;
 
-public class Clients {
+public class Client {
     Integer client_id;
     String name;
     String address;
     String tax_id;
 
-    public Clients(Integer client_id, String name, String address, String tax_id) {
+    public Client(Integer client_id, String name, String address, String tax_id) {
         this.client_id = client_id;
         this.name = name;
         this.address = address;

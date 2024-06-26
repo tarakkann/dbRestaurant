@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dbrestaurant.dbrestaurant.ClientsOrders;
+import dbrestaurant.dbrestaurant.ClientsOrder;
 import dbrestaurant.dbrestaurant.models.ClientOrdersModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,13 +30,13 @@ public class ClientOrdersController {
     private Button backField;
 
     @FXML
-    private TableColumn<ClientsOrders, Integer> clientOrdersIdColumn;
+    private TableColumn<ClientsOrder, Integer> clientOrdersIdColumn;
 
     @FXML
     private TextField clientOrdersQuantity;
 
     @FXML
-    private TableView<ClientsOrders> clientOrdersTable;
+    private TableView<ClientsOrder> clientOrdersTable;
 
     @FXML
     private TextField clientsOrdersId;
@@ -45,20 +45,20 @@ public class ClientOrdersController {
     private TextField dishId;
 
     @FXML
-    private TableColumn<ClientsOrders, Integer> dishIdColumn;
+    private TableColumn<ClientsOrder, Integer> dishIdColumn;
 
     @FXML
     private TextField foodintakeId;
 
     @FXML
-    private TableColumn<ClientsOrders, Integer> foodintakeIdColumn;
+    private TableColumn<ClientsOrder, Integer> foodintakeIdColumn;
 
     @FXML
-    private TableColumn<ClientsOrders, Integer> quantityColumn;
+    private TableColumn<ClientsOrder, Integer> quantityColumn;
 
     @FXML
     private Button updateButton;
-    private ObservableList<ClientsOrders> clientOrdersList;
+    private ObservableList<ClientsOrder> clientOrdersList;
 
     private final ClientOrdersModel clientOrdersModel = new ClientOrdersModel();
 

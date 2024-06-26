@@ -4,6 +4,10 @@ public class Dishes {
     int dish_id;
     private String name;
 
+    public Dishes(int dish_id, String name) {
+        this.dish_id = dish_id;
+        this.name = name;
+    }
     public int getDish_id() {
         return dish_id;
     }
@@ -20,9 +24,6 @@ public class Dishes {
         this.name = name;
     }
 
-    public Dishes(int dish_id, String name) {
-        this.dish_id = dish_id;
-        this.name = name;
-    }
+
 }
 

@@ -1,7 +1,8 @@
 package dbrestaurant.dbrestaurant.models;
 
-import dbrestaurant.dbrestaurant.ClientsOrder;
 import dbrestaurant.dbrestaurant.DataConnection;
+import dbrestaurant.dbrestaurant.DishComposition;
+import dbrestaurant.dbrestaurant.Dishes;
 import dbrestaurant.dbrestaurant.HelloApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ClientOrdersModel {
+public class DishCompositionModel {
     private Stage stage;
     private Scene scene;
 
@@ -32,55 +33,51 @@ public class ClientOrdersModel {
         stage.show();
     }
 
-    public void initializeClientsOrdersTable(TableColumn<ClientsOrder, Integer> clientOrdersIdColumn, TableColumn<ClientsOrder, Integer> foodintakeIdColumn,
-                                             TableColumn<ClientsOrder, Integer> dishIdColumn, TableColumn<ClientsOrder, Integer> quantityColumn) {
-        clientOrdersIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        foodintakeIdColumn.setCellValueFactory(new PropertyValueFactory<>("foodintake_id"));
+    public void initializeDishCompositionTable(TableColumn<DishComposition, Integer> dishIdColumn,
+                                               TableColumn<DishComposition, Integer> ingredientIdColumn,
+                                               TableColumn<DishComposition, Double> quantityColumn) {
         dishIdColumn.setCellValueFactory(new PropertyValueFactory<>("dish_id"));
+        ingredientIdColumn.setCellValueFactory(new PropertyValueFactory<>("ingredient_id"));
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
     }
 
-    public ObservableList<ClientsOrder> getClientOrders() throws SQLException, ClassNotFoundException {
-        ObservableList<ClientsOrder> clientsOrderList = FXCollections.observableArrayList();
+    public ObservableList<DishComposition> getDishCompositions() throws SQLException, ClassNotFoundException {
+        ObservableList<DishComposition> dishList = FXCollections.observableArrayList();
         Connection connection = DataConnection.getDBConnection();
-        String query = "SELECT * FROM clientorders";
+        String query = "SELECT * FROM dishcomposition";
         PreparedStatement pst = connection.prepareStatement(query);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
-            clientsOrderList.add(new ClientsOrder(rs.getInt("id"),
-                    (rs.getInt("foodintake_id")),
-                    (rs.getInt("dish_id")),
-                    (rs.getInt("quantity"))));
+            dishList.add(new DishComposition(rs.getInt("dish_id"),
+                    rs.getInt("ingredient_id"), rs.getDouble("quantity")));
         }
         rs.close();
         pst.close();
         connection.close();
-        return clientsOrderList;
+        return dishList;
     }
 
-    public void addClientOrder(int foodintake_id, int dish_id, int quantity) throws SQLException, ClassNotFoundException {
+    public void addDishComposition(int dish_id, int ingredient_id, double quantity) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "INSERT INTO CLIENTORDERS (foodintake_id, dish_id, quantity) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO dishcomposition (dish_id, ingredient_id, quantity) VALUES (?, ?, ?)";
         PreparedStatement pst = connection.prepareStatement(sql);
-        pst.setInt(1, foodintake_id);
-        pst.setInt(2, dish_id);
-        pst.setInt(3, quantity);
+        pst.setInt(1, dish_id);
+        pst.setInt(2, ingredient_id);
+        pst.setDouble(3, quantity);
         pst.executeUpdate();
         pst.close();
         connection.close();
     }
 
-    public void updateClientOrders(int id, int foodintake_id, int dish_id, int quantity) throws SQLException, ClassNotFoundException {
+    public void updateDish(int dish_id, int ingredient_id, double quantity) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "UPDATE clientorders SET foodintake_id = ?, dish_id = ?, quantity = ? WHERE id = ?";
+        String sql = "UPDATE dishcomposition SET quantity = ? WHERE dish_id = ? AND ingredient_id = ?";
         PreparedStatement pst = connection.prepareStatement(sql);
-        pst.setInt(1, foodintake_id);
+        pst.setDouble(1, quantity);
         pst.setInt(2, dish_id);
-        pst.setInt(3, quantity);
-        pst.setInt(4, id);
+        pst.setInt(3, ingredient_id);
         pst.execute();
         pst.close();
         connection.close();
     }
-
 }

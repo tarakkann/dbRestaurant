@@ -27,7 +27,7 @@
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="clientsList" layoutX="591.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchToClientsScene" style="-fx-background-color: #596C68;" text="Список клиентов" textFill="WHITE">
+        <Button fx:id="clientList" layoutX="591.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchToClientsScene" style="-fx-background-color: #596C68;" text="Список клиентов" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>
@@ -47,7 +47,7 @@
             <Font name="Century Gothic" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="dishCompositionButton" layoutX="770.0" layoutY="143.0" mnemonicParsing="false" style="-fx-background-color: #596C68;" text="Состав блюд" textFill="WHITE">
+      <Button fx:id="dishCompositionButton" layoutX="770.0" layoutY="143.0" mnemonicParsing="false" onAction="#switchToDishCompositionScene" style="-fx-background-color: #596C68;" text="Состав блюд" textFill="WHITE">
          <font>
             <Font name="Century Gothic" size="19.0" />
          </font>

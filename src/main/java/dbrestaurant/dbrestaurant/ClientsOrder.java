@@ -1,6 +1,6 @@
 package dbrestaurant.dbrestaurant;
 
-public class ClientsOrders {
+public class ClientsOrder {
     int id;
     int foodintake_id;
     int dish_id;
@@ -38,8 +38,8 @@ public class ClientsOrders {
         this.quantity = quantity;
     }
 
-    public ClientsOrders(int id, int foodintake_id,
-                         int dish_id, int quantity) {
+    public ClientsOrder(int id, int foodintake_id,
+                        int dish_id, int quantity) {
         this.id = id;
         this.foodintake_id = foodintake_id;
         this.dish_id = dish_id;
