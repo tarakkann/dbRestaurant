@@ -1,6 +1,6 @@
 package dbrestaurant.dbrestaurant.controllers;
 
-import dbrestaurant.dbrestaurant.Ingridients;
+import dbrestaurant.dbrestaurant.Ingredients;
 import dbrestaurant.dbrestaurant.models.IngridientsModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,33 +31,33 @@ public class IngridientsController {
     private TextField ingridientId;
 
     @FXML
-    private TableColumn<Ingridients, Integer> ingridientIdColumn;
+    private TableColumn<Ingredients, Integer> ingridientIdColumn;
 
     @FXML
     private TextField ingridientName;
 
     @FXML
-    private TableColumn<Ingridients, String> ingridientNameColumn;
+    private TableColumn<Ingredients, String> ingridientNameColumn;
 
     @FXML
     private TextField ingridientQuantity;
 
     @FXML
-    private TableColumn<Ingridients, Double> ingridientQuantityColumn;
+    private TableColumn<Ingredients, Double> ingridientQuantityColumn;
 
     @FXML
     private TextField ingridientUnit;
 
     @FXML
-    private TableColumn<Ingridients, String> ingridientUnitColumn;
+    private TableColumn<Ingredients, String> ingridientUnitColumn;
 
     @FXML
-    private TableView<Ingridients> IngridientTable;
+    private TableView<Ingredients> IngridientTable;
 
     @FXML
     private Button updateButton;
 
-    private ObservableList<Ingridients> ingridientsList;
+    private ObservableList<Ingredients> ingredientsList;
 
     private final IngridientsModel ingridientsModel = new IngridientsModel();
 
@@ -68,8 +68,8 @@ public class IngridientsController {
         ingridientUnitColumn.setCellValueFactory(new PropertyValueFactory<>("unit"));
         ingridientQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         try {
-            ingridientsList = ingridientsModel.getIngridients();
-            IngridientTable.setItems(ingridientsList);
+            ingredientsList = ingridientsModel.getIngridients();
+            IngridientTable.setItems(ingredientsList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -80,7 +80,7 @@ public class IngridientsController {
         try {
             ingridientsModel.addIngridient(ingridientName.getText(),
                     ingridientUnit.getText(), Double.parseDouble(ingridientQuantity.getText()));
-            ingridientsList.setAll(ingridientsModel.getIngridients());
+            ingredientsList.setAll(ingridientsModel.getIngridients());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -91,7 +91,7 @@ public class IngridientsController {
         try {
             ingridientsModel.updateIngridient(ingridientId.getText(),
                     ingridientName.getText(), ingridientUnit.getText(), Double.parseDouble(ingridientQuantity.getText()));
-            ingridientsList.setAll(ingridientsModel.getIngridients());
+            ingredientsList.setAll(ingridientsModel.getIngridients());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

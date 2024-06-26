@@ -5,10 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dbrestaurant.dbrestaurant.ClientsOrders;
-import dbrestaurant.dbrestaurant.Dishes;
-import dbrestaurant.dbrestaurant.Ingridients;
 import dbrestaurant.dbrestaurant.models.ClientOrdersModel;
-import dbrestaurant.dbrestaurant.models.DishModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

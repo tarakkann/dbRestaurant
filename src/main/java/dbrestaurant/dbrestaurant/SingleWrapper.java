@@ -6,6 +6,7 @@ public class SingleWrapper {
     public static SingleWrapper getInstance() {
         return instance;
     }
+
     private Integer id;
     private boolean isClient;
 

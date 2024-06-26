@@ -37,8 +37,7 @@ public class SignInModel {
                 SingleWrapper.getInstance().setId(id);
                 SingleWrapper.getInstance().setIsClient(true);
                 return true;
-            }
-            else
+            } else
                 return false;
 
 

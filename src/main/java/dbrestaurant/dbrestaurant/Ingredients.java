@@ -1,12 +1,12 @@
 package dbrestaurant.dbrestaurant;
 
-public class Ingridients {
+public class Ingredients {
     int ingredient_id;
     String name;
     String unit;
     double quantity;
 
-    public Ingridients(int ingredient_id, String name, String unit, double quantity) {
+    public Ingredients(int ingredient_id, String name, String unit, double quantity) {
         this.ingredient_id = ingredient_id;
         this.name = name;
         this.unit = unit;

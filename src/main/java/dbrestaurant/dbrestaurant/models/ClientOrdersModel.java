@@ -2,7 +2,6 @@ package dbrestaurant.dbrestaurant.models;
 
 import dbrestaurant.dbrestaurant.ClientsOrders;
 import dbrestaurant.dbrestaurant.DataConnection;
-import dbrestaurant.dbrestaurant.Dishes;
 import dbrestaurant.dbrestaurant.HelloApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,13 +26,13 @@ public class ClientOrdersModel {
 
     public void switchToMenuScene(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menu.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void initializeClientsOrdersTable(TableColumn <ClientsOrders, Integer> clientOrdersIdColumn, TableColumn<ClientsOrders, Integer> foodintakeIdColumn,
+    public void initializeClientsOrdersTable(TableColumn<ClientsOrders, Integer> clientOrdersIdColumn, TableColumn<ClientsOrders, Integer> foodintakeIdColumn,
                                              TableColumn<ClientsOrders, Integer> dishIdColumn, TableColumn<ClientsOrders, Integer> quantityColumn) {
         clientOrdersIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         foodintakeIdColumn.setCellValueFactory(new PropertyValueFactory<>("foodintake_id"));
@@ -58,6 +57,7 @@ public class ClientOrdersModel {
         connection.close();
         return clientsOrdersList;
     }
+
     public void addClientOrder(int foodintake_id, int dish_id, int quantity) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
         String sql = "INSERT INTO CLIENTORDERS (foodintake_id, dish_id, quantity) VALUES (?, ?, ?)";
@@ -69,6 +69,7 @@ public class ClientOrdersModel {
         pst.close();
         connection.close();
     }
+
     public void updateClientOrders(int id, int foodintake_id, int dish_id, int quantity) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
         String sql = "UPDATE clientorders SET foodintake_id = ?, dish_id = ?, quantity = ? WHERE id = ?";

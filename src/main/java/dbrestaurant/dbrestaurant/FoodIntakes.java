@@ -1,7 +1,5 @@
 package dbrestaurant.dbrestaurant;
 
-import java.util.Date;
-
 public class FoodIntakes {
     int id;
     int table_id;

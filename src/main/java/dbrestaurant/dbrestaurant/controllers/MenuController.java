@@ -97,6 +97,7 @@ public class MenuController {
     void initialize() {
 
     }
+
     MenuModel menuModel = new MenuModel();
 
     @FXML
@@ -114,14 +115,17 @@ public class MenuController {
     void switchToIngridientsScene(ActionEvent event) throws IOException {
         menuModel.switchToIngridientScene(event);
     }
+
     @FXML
     void switchToClientsScene(ActionEvent event) throws IOException {
         menuModel.switchToClientsScene(event);
     }
+
     @FXML
     void switchToClientOrderScene(ActionEvent event) throws IOException {
         menuModel.switchToClientOrdersScene(event);
     }
+
     @FXML
     void switchToFoodIntakeScene(ActionEvent event) throws IOException {
         menuModel.switchToFoodIntakeScene(event);
