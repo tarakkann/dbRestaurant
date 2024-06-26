@@ -2,6 +2,7 @@ package dbrestaurant.dbrestaurant.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import dbrestaurant.dbrestaurant.ClientsOrder;
@@ -114,4 +115,14 @@ public class ClientOrdersController {
         }
     }
 
+    @FXML
+    void deleteClientOrder() throws SQLException, ClassNotFoundException {
+        clientOrdersModel.deleteClientOrder(Integer.parseInt(clientsOrdersId.getText()));
+        try {
+            clientOrdersList = clientOrdersModel.getClientOrders();
+            clientOrdersTable.setItems(clientOrdersList);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

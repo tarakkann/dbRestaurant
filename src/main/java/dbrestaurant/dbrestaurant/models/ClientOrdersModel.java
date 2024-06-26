@@ -83,4 +83,13 @@ public class ClientOrdersModel {
         connection.close();
     }
 
+    public void deleteClientOrder(int id) throws SQLException, ClassNotFoundException {
+        Connection connection = DataConnection.getDBConnection();
+        String sql = "DELETE FROM clientorders WHERE id = ?";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setInt(1, id);
+        pst.executeUpdate();
+        pst.close();
+        connection.close();
+    }
 }
