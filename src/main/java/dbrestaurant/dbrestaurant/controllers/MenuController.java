@@ -30,7 +30,11 @@ public class MenuController {
 
     @FXML
     private Button ingridientList;
+    @FXML
+    private Button dishCompositionButton;
 
+    @FXML
+    private Button foodIntakeButton;
 
     public ResourceBundle getResources() {
         return resources;
@@ -88,6 +92,7 @@ public class MenuController {
         this.ingridientList = ingridientList;
     }
 
+
     @FXML
     void initialize() {
 
@@ -113,4 +118,13 @@ public class MenuController {
     void switchToClientsScene(ActionEvent event) throws IOException {
         menuModel.switchToClientsScene(event);
     }
+    @FXML
+    void switchToClientOrderScene(ActionEvent event) throws IOException {
+        menuModel.switchToClientOrdersScene(event);
+    }
+    @FXML
+    void switchToFoodIntakeScene(ActionEvent event) throws IOException {
+        menuModel.switchToFoodIntakeScene(event);
+    }
+
 }

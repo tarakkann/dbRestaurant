@@ -61,4 +61,19 @@ public class DataConnection {
         }
         return list;
     }
+    public static ObservableList<FoodIntakes> getFoodIntake() throws SQLException, ClassNotFoundException{
+        Connection connection1 = getDBConnection();
+        ObservableList<FoodIntakes> list = FXCollections.observableArrayList();
+        PreparedStatement ps = connection1.prepareStatement("SELECT * FROM foodintake");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            list.add(new FoodIntakes(Integer.parseInt(rs.getString("id")),
+                    Integer.parseInt(rs.getString("table_id")),
+                    Integer.parseInt(rs.getString("waiter_id")),
+                    rs.getString("start_time"),
+                    rs.getString("end_time"),
+                    Integer.parseInt(rs.getString("client_id"))));
+        }
+        return list;
+    }
 }

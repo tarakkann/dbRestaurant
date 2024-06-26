@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #403F48;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbrestaurant.dbrestaurant.controllers.FoodIntakeController">
+    <AnchorPane layoutX="-14.0" layoutY="90.0" prefHeight="511.0" prefWidth="1018.0" style="-fx-background-color: FAF8F5;">
+        <Button fx:id="backField" layoutX="44.0" layoutY="449.0" mnemonicParsing="false" onAction="#switchToMenuScene" prefHeight="36.0" prefWidth="124.0" style="-fx-background-color: #596C68;" text="Назад" textFill="WHITE">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </Button>
+        <TableView fx:id="foodIntakeTable" layoutX="168.0" layoutY="122.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="674.0">
+            <columns>
+                <TableColumn fx:id="foodIntakeIdColumn" prefWidth="98.66668701171875" text="id" />
+                <TableColumn fx:id="table_idColumn" prefWidth="114.66665649414062" text="table_id" />
+            <TableColumn fx:id="waiterIdColumn" prefWidth="116.6666259765625" text="waiter_id" />
+                <TableColumn fx:id="startTimeColumn" prefWidth="124.00003051757812" text="start_time" />
+            <TableColumn fx:id="endTimeColumn" prefWidth="112.66668701171875" text="end_time" />
+            <TableColumn fx:id="clientIdColumn" prefWidth="108.0" text="client_id" />
+            </columns>
+        </TableView>
+        <TextField fx:id="foodIntakeId" layoutX="168.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="id" />
+        <TextField fx:id="table_id" layoutX="270.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" promptText="table_id" />
+        <Button fx:id="addButton" layoutX="863.0" layoutY="41.0" mnemonicParsing="false" onAction="#addFoodIntake" style="-fx-background-color: #596C68;" text="Добавить" textFill="WHITE">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+        <TextField fx:id="startTime" layoutX="500.0" layoutY="97.0" prefHeight="25.0" prefWidth="124.0" promptText="start_time" />
+        <TextField fx:id="endTime" layoutX="625.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" promptText="end_time" />
+        <Button fx:id="updateButton" layoutX="858.0" layoutY="110.0" mnemonicParsing="false" onAction="#updateFoodIntake" prefHeight="43.0" prefWidth="124.0" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+            <font>
+                <Font name="Century Gothic" size="19.0" />
+            </font></Button>
+      <TextField fx:id="clientId" layoutX="740.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="client_id" />
+      <TextField fx:id="waiterId" layoutX="384.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" promptText="waiter_id" />
+    </AnchorPane>
+    <Text fill="WHITE" layoutX="244.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
+        <font>
+            <Font name="Century Gothic Bold" size="40.0" />
+        </font>
+    </Text>
+</AnchorPane>

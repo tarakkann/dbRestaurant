@@ -17,26 +17,41 @@
                 <Font name="Century Gothic" size="42.0" />
             </font>
         </Text>
-        <Button fx:id="createDish" layoutX="198.0" layoutY="145.0" mnemonicParsing="false" onAction="#switchToDishScene" style="-fx-background-color: #596C68;" text="Создать запись о блюде" textFill="WHITE">
+        <Button fx:id="createDish" layoutX="592.0" layoutY="143.0" mnemonicParsing="false" onAction="#switchToDishScene" style="-fx-background-color: #596C68;" text="Список блюд" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="ingridientList" layoutX="198.0" layoutY="221.0" mnemonicParsing="false" onAction="#switchToIngridientsScene" style="-fx-background-color: #596C68;" text="Список ингредиентов" textFill="WHITE">
+        <Button fx:id="ingridientList" layoutX="591.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToIngridientsScene" style="-fx-background-color: #596C68;" text="Список ингредиентов" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="clientsList" layoutX="198.0" layoutY="303.0" mnemonicParsing="false" onAction="#switchToClientsScene" style="-fx-background-color: #596C68;" text="Список клиентов" textFill="WHITE">
+        <Button fx:id="clientsList" layoutX="591.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchToClientsScene" style="-fx-background-color: #596C68;" text="Список клиентов" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="changeData" layoutX="631.0" layoutY="145.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="222.0" style="-fx-background-color: #596C68;" text="Изменить данные" textFill="WHITE">
+        <Button fx:id="changeData" layoutX="779.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="222.0" style="-fx-border-color: #596C68; -fx-background-color: FAF8F5;" text="Изменить данные" textFill="#374c3c">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
+      <Button fx:id="clientsOrdersButton" layoutX="168.0" layoutY="142.0" mnemonicParsing="false" onAction="#switchToClientOrderScene" style="-fx-background-color: #596C68;" text="Список заказов" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="foodIntakeButton" layoutX="168.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToFoodIntakeScene" style="-fx-background-color: #596C68;" text="Список приемов пищи" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="dishCompositionButton" layoutX="770.0" layoutY="143.0" mnemonicParsing="false" style="-fx-background-color: #596C68;" text="Состав блюд" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="19.0" />
+         </font>
+      </Button>
     </AnchorPane>
     <Text fill="WHITE" layoutX="244.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
         <font>
