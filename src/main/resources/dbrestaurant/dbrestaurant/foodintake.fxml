@@ -27,14 +27,14 @@
         </TableView>
         <TextField fx:id="foodIntakeId" layoutX="168.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="id" />
         <TextField fx:id="table_id" layoutX="270.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" promptText="table_id" />
-        <Button fx:id="addButton" layoutX="863.0" layoutY="41.0" mnemonicParsing="false" onAction="#addFoodIntake" style="-fx-background-color: #596C68;" text="Добавить" textFill="WHITE">
+        <Button fx:id="addButton" layoutX="871.0" layoutY="143.0" mnemonicParsing="false" onAction="#addFoodIntake" style="-fx-background-color: #596C68;" text="Добавить" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
         </Button>
         <TextField fx:id="startTime" layoutX="500.0" layoutY="97.0" prefHeight="25.0" prefWidth="124.0" promptText="start_time" />
         <TextField fx:id="endTime" layoutX="625.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" promptText="end_time" />
-        <Button fx:id="updateButton" layoutX="858.0" layoutY="110.0" mnemonicParsing="false" onAction="#updateFoodIntake" prefHeight="43.0" prefWidth="124.0" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+        <Button fx:id="updateButton" layoutX="866.0" layoutY="212.0" mnemonicParsing="false" onAction="#updateFoodIntake" prefHeight="43.0" prefWidth="124.0" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font></Button>
