@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ClientsController {
@@ -110,5 +111,16 @@ public class ClientsController {
 
     public void switchToMenuScene(ActionEvent event) throws IOException {
         clientsModel.switchToMenuScene(event);
+    }
+
+    @FXML
+    void deleteClient() throws SQLException, ClassNotFoundException {
+        clientsModel.deleteClient(Integer.parseInt(clientsId.getText()));
+        try {
+            clientList = clientsModel.getClientsList();
+            clientsTable.setItems(clientList);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

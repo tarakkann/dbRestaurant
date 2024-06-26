@@ -70,4 +70,14 @@ public class ClientsModel {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void deleteClient(int id) throws SQLException, ClassNotFoundException {
+        Connection connection = DataConnection.getDBConnection();
+        String sql = "DELETE FROM clients WHERE id = ?";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setInt(1, id);
+        pst.executeUpdate();
+        pst.close();
+        connection.close();
+    }
 }

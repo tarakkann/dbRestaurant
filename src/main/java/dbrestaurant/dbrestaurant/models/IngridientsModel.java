@@ -69,4 +69,13 @@ public class IngridientsModel {
         pst.close();
         connection.close();
     }
+    public void deleteIngredient(int id) throws SQLException, ClassNotFoundException {
+        Connection connection = DataConnection.getDBConnection();
+        String sql = "DELETE FROM ingridients WHERE id = ?";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setInt(1, id);
+        pst.executeUpdate();
+        pst.close();
+        connection.close();
+    }
 }

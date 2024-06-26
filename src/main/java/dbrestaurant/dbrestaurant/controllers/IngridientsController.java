@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class IngridientsController {
@@ -112,5 +113,15 @@ public class IngridientsController {
     @FXML
     void switchToMenuScene(ActionEvent event) throws IOException {
         ingridientsModel.switchToMenuScene(event);
+    }
+    @FXML
+    void deleteIngredient() throws SQLException, ClassNotFoundException {
+        ingridientsModel.deleteIngredient(Integer.parseInt(ingridientId.getText()));
+        try {
+            ingredientsList = ingridientsModel.getIngridients();
+            IngridientTable.setItems(ingredientsList);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

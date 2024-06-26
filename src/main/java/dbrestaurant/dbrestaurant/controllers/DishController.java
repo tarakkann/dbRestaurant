@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DishController {
@@ -95,5 +96,15 @@ public class DishController {
     @FXML
     void switchToMenuScene(ActionEvent event) throws IOException {
         dishModel.switchToMenuScene(event);
+    }
+    @FXML
+    void deleteDish() throws SQLException, ClassNotFoundException {
+        dishModel.deleteDish(Integer.parseInt(dishId.getText()));
+        try {
+            dishList = dishModel.getDishes();
+            dishTable.setItems(dishList);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

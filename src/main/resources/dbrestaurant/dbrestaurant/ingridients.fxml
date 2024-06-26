@@ -32,7 +32,12 @@
         </Button>
       <TextField fx:id="ingridientQuantity" layoutX="605.0" layoutY="109.0" prefHeight="25.0" prefWidth="102.0" promptText="quantity" />
       <TextField fx:id="ingridientId" layoutX="308.0" layoutY="109.0" prefHeight="25.0" prefWidth="102.0" promptText="id" />
-      <Button fx:id="updateButton" layoutX="767.0" layoutY="219.0" mnemonicParsing="false" onAction="#updateIngridients" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+      <Button fx:id="updateButton" layoutX="766.0" layoutY="210.0" mnemonicParsing="false" onAction="#updateIngridients" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteIngredientButton" layoutX="766.0" layoutY="274.0" mnemonicParsing="false" onAction="#deleteIngredient" style="-fx-background-color: #596C68;" text="Удалить" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

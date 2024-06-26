@@ -2,6 +2,7 @@ package dbrestaurant.dbrestaurant.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import dbrestaurant.dbrestaurant.DishComposition;
@@ -103,6 +104,16 @@ public class DishCompositionController {
             dishCompositionsList = dishCompositionModel.getDishCompositions();
             dishCompositionTable.setItems(dishCompositionsList);
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void deleteDishComposition() throws SQLException, ClassNotFoundException {
+        dishCompositionModel.deleteDishComposition(Integer.parseInt(dishId.getText()),Integer.parseInt(ingredientId.getText()));
+        try {
+            dishCompositionsList = dishCompositionModel.getDishCompositions();
+            dishCompositionTable.setItems(dishCompositionsList);
+        }catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

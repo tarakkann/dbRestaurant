@@ -40,6 +40,11 @@
             </font></Button>
       <TextField fx:id="clientId" layoutX="740.0" layoutY="97.0" prefHeight="25.0" prefWidth="102.0" promptText="client_id" />
       <TextField fx:id="waiterId" layoutX="384.0" layoutY="97.0" prefHeight="25.0" prefWidth="115.0" promptText="waiter_id" />
+      <Button fx:id="deleteFoodIntakeButton" layoutX="866.0" layoutY="278.0" mnemonicParsing="false" onAction="#deleteFoodIntake" prefHeight="43.0" prefWidth="124.0" style="-fx-background-color: #596C68;" text="Удалить" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="19.0" />
+         </font>
+      </Button>
     </AnchorPane>
     <Text fill="WHITE" layoutX="244.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
         <font>

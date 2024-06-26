@@ -33,6 +33,11 @@
             <Font size="20.0" />
          </font>
       </Button>
+      <Button fx:id="deleteDish" layoutX="757.0" layoutY="223.0" mnemonicParsing="false" onAction="#deleteDish" style="-fx-background-color: #596C68;" text="Удалить" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
     </AnchorPane>
     <Text fill="WHITE" layoutX="244.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
         <font>

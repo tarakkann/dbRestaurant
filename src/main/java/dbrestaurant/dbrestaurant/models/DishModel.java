@@ -72,4 +72,14 @@ public class DishModel {
         pst.close();
         connection.close();
     }
+
+    public void deleteDish(int id) throws SQLException, ClassNotFoundException {
+        Connection connection = DataConnection.getDBConnection();
+        String sql = "DELETE FROM dishes WHERE id = ?";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setInt(1, id);
+        pst.executeUpdate();
+        pst.close();
+        connection.close();
+    }
 }
