@@ -1,6 +1,7 @@
 package dbrestaurant.dbrestaurant.models;
 
 import dbrestaurant.dbrestaurant.HelloApplication;
+import dbrestaurant.dbrestaurant.SingleWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,10 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class RegistrationModel {
     private Scene scene;
@@ -49,17 +47,41 @@ public class RegistrationModel {
         }
     }
 
-    public void createReg(String name, String phone, String address) {
+    public void createReg(String name, String address, String phone) {
+        ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO waiters (name, address, phone_number) VALUES (?,?,?)");
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, phone);
-            preparedStatement.setString(3, address);
+            preparedStatement.setString(2, address);
+            preparedStatement.setString(3, phone);
             preparedStatement.executeUpdate();
 
+            preparedStatement = connection.prepareStatement("SELECT id FROM waiters WHERE name = ? AND phone_number = ?");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, phone);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int waiterId = resultSet.getInt("id");
+                SingleWrapper.getInstance().setId(waiterId);
+                SingleWrapper.getInstance().getId();//мяу
+            }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Ошибка " + e.getMessage());
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
-
 }
