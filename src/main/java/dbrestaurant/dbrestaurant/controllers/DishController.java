@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DishController {
+
     @FXML
     private ResourceBundle resources;
 
@@ -160,9 +161,7 @@ public class DishController {
         connection = DataConnection.getDBConnection();
         String value1 = dishId.getText();
         String value2 = dishName.getText();
-
-
-        String sql = "UPDATE dishes SET dish_id = '"+value1+"', name = '"+value2+"' WHERE dish_id = '"+value1+"' ";
+        String sql = "UPDATE dishes SET id = '"+value1+"', name = '"+value2+"' WHERE id = '"+value1+"' ";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.execute();
     }

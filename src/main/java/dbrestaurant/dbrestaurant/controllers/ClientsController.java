@@ -153,7 +153,7 @@ public class ClientsController {
 
     @FXML
     void addClients(ActionEvent event) throws ClassNotFoundException, SQLException {
-        clientsModel.addClient(clientsName.getText(), clientsAddress.getText(), clientsTaxId.getText());
+        clientsModel.addClient(clientsTaxId.getText(), clientsAddress.getText(), clientsName.getText());
     }
 
     @FXML
@@ -181,8 +181,8 @@ public class ClientsController {
         String value3 = clientsAddress.getText();
         String value4 = clientsTaxId.getText();
 
-        String sql = "UPDATE clients SET client_id = '"+value1+"', name = '"+value2+"', address = '"+value3+
-                "', tax_id = '"+value4+"' WHERE client_id = '"+value1+"' ";
+        String sql = "UPDATE clients SET id = '"+value1+"', tax_id = '"+value4+"', name = '"+value2+
+                "', address = '"+value3+"' WHERE id = '"+value1+"' ";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.execute();
 

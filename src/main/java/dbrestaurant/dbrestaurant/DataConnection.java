@@ -32,7 +32,7 @@ public class DataConnection {
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()){
-            list.add(new Dishes(Integer.parseInt(rs.getString("dish_id")),
+            list.add(new Dishes(Integer.parseInt(rs.getString("id")),
                     rs.getString("name")));
         }
         return list;
@@ -43,7 +43,7 @@ public class DataConnection {
         PreparedStatement ps = connection1.prepareStatement("SELECT * FROM ingridients");
         ResultSet rs = ps.executeQuery();
         while (rs.next()){
-            list.add(new Ingridients(Integer.parseInt(rs.getString("ingredient_id")),
+            list.add(new Ingridients(Integer.parseInt(rs.getString("id")),
                     rs.getString("name"),
                     rs.getString("unit"), Double.parseDouble(rs.getString("quantity"))));
         }
@@ -56,9 +56,8 @@ public class DataConnection {
         PreparedStatement ps = connection1.prepareStatement("SELECT * FROM clients");
         ResultSet rs = ps.executeQuery();
         while (rs.next()){
-            list.add(new Clients(Integer.parseInt(rs.getString("client_id")),
-                    rs.getString("name"),
-                    rs.getString("address"), rs.getString("tax_id")));
+            list.add(new Clients(Integer.parseInt(rs.getString("id")), rs.getString("tax_id"),
+                    rs.getString("address"),rs.getString("name")));
         }
         return list;
     }

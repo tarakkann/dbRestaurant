@@ -33,7 +33,7 @@ public class SignInModel {
             ResultSet rs = preparedStatement.executeQuery();
 
             if (rs.next()) {
-                Integer id = rs.getInt("waiter_id");
+                Integer id = rs.getInt("id");
                 SingleWrapper.getInstance().setId(id);
                 SingleWrapper.getInstance().setIsClient(true);
                 return true;

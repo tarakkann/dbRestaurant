@@ -2,7 +2,7 @@ package dbrestaurant.dbrestaurant;
 
 public class Dishes {
     int dish_id;
-    String name;
+    private String name;
 
     public int getDish_id() {
         return dish_id;
@@ -20,8 +20,9 @@ public class Dishes {
         this.name = name;
     }
 
-    public Dishes(int id, String name) {
-        this.dish_id = id;
+    public Dishes(int dish_id, String name) {
+        this.dish_id = dish_id;
         this.name = name;
     }
 }
+

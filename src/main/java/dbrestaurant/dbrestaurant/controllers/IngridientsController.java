@@ -202,9 +202,9 @@ public class IngridientsController {
         String value4 = ingridientQuantity.getText();
 
 
-        String sql = "UPDATE ingridients SET ingredient_id = '"+value1+"', name = '"+value2+"'," +
+        String sql = "UPDATE ingridients SET id = '"+value1+"', name = '"+value2+"'," +
                 " unit = '"+value3+"', quantity = '"+value4+
-                "' WHERE ingredient_id = '"+value1+"' ";
+                "' WHERE id = '"+value1+"' ";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.execute();
     }
