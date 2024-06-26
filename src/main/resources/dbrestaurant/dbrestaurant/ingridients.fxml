@@ -15,7 +15,7 @@
                 <Font size="19.0" />
             </font>
         </Button>
-        <TableView fx:id="IngridientTable" layoutX="308.0" layoutY="132.0" prefHeight="200.0" prefWidth="399.0">
+        <TableView fx:id="IngridientTable" layoutX="308.0" layoutY="132.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="399.0">
             <columns>
                 <TableColumn fx:id="ingridientIdColumn" prefWidth="98.66668701171875" text="ingridient_id" />
                 <TableColumn fx:id="ingridientNameColumn" prefWidth="99.33332824707031" text="name" />
@@ -32,7 +32,7 @@
         </Button>
       <TextField fx:id="ingridientQuantity" layoutX="605.0" layoutY="109.0" prefHeight="25.0" prefWidth="102.0" promptText="quantity" />
       <TextField fx:id="ingridientId" layoutX="308.0" layoutY="109.0" prefHeight="25.0" prefWidth="102.0" promptText="id" />
-      <Button fx:id="updateButton" layoutX="767.0" layoutY="219.0" mnemonicParsing="false" onAction="#addIngridient" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
+      <Button fx:id="updateButton" layoutX="767.0" layoutY="219.0" mnemonicParsing="false" onAction="#updateIngridients" style="-fx-background-color: #596C68;" text="Обновить" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

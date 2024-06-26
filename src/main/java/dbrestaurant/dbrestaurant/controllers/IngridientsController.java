@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import dbrestaurant.dbrestaurant.DataConnection;
-import dbrestaurant.dbrestaurant.Dishes;
 import dbrestaurant.dbrestaurant.Ingridients;
 import dbrestaurant.dbrestaurant.models.IngridientsModel;
 import javafx.collections.ObservableList;
@@ -19,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class IngridientsController {
 
@@ -27,6 +27,7 @@ public class IngridientsController {
 
     @FXML
     private URL location;
+
 
     @FXML
     private TableView<Ingridients> IngridientTable;
@@ -38,7 +39,9 @@ public class IngridientsController {
     private Button backField;
 
     @FXML
-    private TableColumn<Ingridients, Integer> ingridientId;
+    private TextField ingridientId;
+    @FXML
+    private TableColumn<Ingridients, Integer> ingridientIdColumn;
 
     @FXML
     private TextField ingridientName;
@@ -50,7 +53,7 @@ public class IngridientsController {
     private TextField ingridientQuantity;
 
     @FXML
-    private TableColumn<Ingridients, Integer> ingridientQuantityColumn;
+    private TableColumn<Ingridients, Double> ingridientQuantityColumn;
 
     @FXML
     private TextField ingridientUnit;
@@ -84,7 +87,7 @@ public class IngridientsController {
     }
 
     public void setIngridientTable(TableView<Ingridients> ingridientTable) {
-        IngridientTable = ingridientTable;
+        ingridientTable = ingridientTable;
     }
 
     public Button getAddButton() {
@@ -103,12 +106,12 @@ public class IngridientsController {
         this.backField = backField;
     }
 
-    public TableColumn<Ingridients, Integer> getIngridientId() {
-        return ingridientId;
+    public TableColumn<Ingridients, Integer> getIngridientIdColumn() {
+        return ingridientIdColumn;
     }
 
     public void setIngridientId(TableColumn<Ingridients, Integer> ingridientId) {
-        this.ingridientId = ingridientId;
+        this.ingridientIdColumn = ingridientIdColumn;
     }
 
     public TextField getIngridientName() {
@@ -135,11 +138,11 @@ public class IngridientsController {
         this.ingridientQuantity = ingridientQuantity;
     }
 
-    public TableColumn<Ingridients, Integer> getIngridientQuantityColumn() {
+    public TableColumn<Ingridients, Double> getIngridientQuantityColumn() {
         return ingridientQuantityColumn;
     }
 
-    public void setIngridientQuantityColumn(TableColumn<Ingridients, Integer> ingridientQuantityColumn) {
+    public void setIngridientQuantityColumn(TableColumn<Ingridients, Double> ingridientQuantityColumn) {
         this.ingridientQuantityColumn = ingridientQuantityColumn;
     }
 
@@ -167,7 +170,7 @@ public class IngridientsController {
 
     @FXML
     void initialize() {
-        ingridientId.setCellValueFactory(new PropertyValueFactory<>("ingredient_id"));
+        ingridientIdColumn.setCellValueFactory(new PropertyValueFactory<>("ingredient_id"));
         ingridientNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         ingridientUnitColumn.setCellValueFactory(new PropertyValueFactory<>("unit"));
         ingridientQuantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -189,5 +192,33 @@ public class IngridientsController {
         pst.setString(3, ingridientQuantity.getText());
         pst.executeUpdate();
     }
+    int index = -1;
+    @FXML
+    void updateIngridients(ActionEvent event) throws SQLException, ClassNotFoundException {
+        connection = DataConnection.getDBConnection();
+        String value1 = ingridientId.getText();
+        String value2 = ingridientName.getText();
+        String value3 = ingridientUnit.getText();
+        String value4 = ingridientQuantity.getText();
+
+
+        String sql = "UPDATE ingridients SET ingredient_id = '"+value1+"', name = '"+value2+"'," +
+                " unit = '"+value3+"', quantity = '"+value4+
+                "' WHERE ingredient_id = '"+value1+"' ";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.execute();
+    }
+    @FXML
+    void getSelected(MouseEvent event) throws IOException {
+        index = IngridientTable.getSelectionModel().getSelectedIndex();
+        if (index <= -1){
+            return;
+        }
+        ingridientId.setText(ingridientIdColumn.getCellData(index).toString());
+        ingridientName.setText(ingridientNameColumn.getCellData(index));
+        ingridientUnit.setText(ingridientUnitColumn.getCellData(index));
+        ingridientQuantity.setText(ingridientQuantityColumn.getCellData(index).toString());
+    }
+
 
 }

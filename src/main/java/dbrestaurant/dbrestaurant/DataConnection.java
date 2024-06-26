@@ -45,8 +45,7 @@ public class DataConnection {
         while (rs.next()){
             list.add(new Ingridients(Integer.parseInt(rs.getString("ingredient_id")),
                     rs.getString("name"),
-                    rs.getString("unit"),
-                    Double.parseDouble(rs.getString("quantity"))));
+                    rs.getString("unit"), Double.parseDouble(rs.getString("quantity"))));
         }
         return list;
     }
