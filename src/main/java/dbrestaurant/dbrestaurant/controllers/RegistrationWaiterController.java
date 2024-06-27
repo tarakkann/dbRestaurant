@@ -3,6 +3,7 @@ package dbrestaurant.dbrestaurant.controllers;
 import dbrestaurant.dbrestaurant.models.RegistrationWaiterModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -19,7 +20,7 @@ public class RegistrationWaiterController {
     private URL location;
 
     @FXML
-    private TextField adressField;
+    private TextField addressField;
 
     @FXML
     private Button backButton;
@@ -32,7 +33,6 @@ public class RegistrationWaiterController {
 
     @FXML
     private Button registrationButton;
-
 
     private final RegistrationWaiterModel registrationWaiterModel = new RegistrationWaiterModel();
 
@@ -48,13 +48,22 @@ public class RegistrationWaiterController {
     @FXML
     void reg(ActionEvent event) {
         try {
-            String address = adressField.getText();
+            String address = addressField.getText();
             String phone = phoneField.getText();
             String name = nameField.getText();
-            registrationWaiterModel.createReg(name, address, phone);
-            registrationWaiterModel.switchToMenuScene(event);
+            if (registrationWaiterModel.createReg(name, address, phone)) {
+                registrationWaiterModel.switchToMenuScene(event);
+            }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            showError("IO Error", "An error occurred during the operation. Please try again.");
         }
+    }
+
+    private void showError(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

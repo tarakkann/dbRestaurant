@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -46,7 +47,12 @@ public class RegistrationWaiterModel {
         stage.show();
     }
 
-    public void createReg(String name, String address, String phone) {
+    public boolean createReg(String name, String address, String phone) {
+        if (name.isEmpty() || address.isEmpty() || phone.isEmpty()) {
+            showAlert("Validation Error", "Все поля должны быть заполнены");
+            return false;
+        }
+
         ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO waiters (name, address, phone_number) VALUES (?,?,?)");
@@ -63,8 +69,10 @@ public class RegistrationWaiterModel {
                 int waiterId = resultSet.getInt("id");
                 SingleWrapper.getInstance().setId(waiterId);
             }
+            return true; // Return true to indicate success
         } catch (SQLException e) {
             System.out.println("Ошибка" + e.getMessage());
+            return false; // Return false to indicate SQL error
         } finally {
             if (resultSet != null) {
                 try {
@@ -83,4 +91,11 @@ public class RegistrationWaiterModel {
         }
     }
 
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

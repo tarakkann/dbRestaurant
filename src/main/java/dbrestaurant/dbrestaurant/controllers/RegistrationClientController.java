@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import dbrestaurant.dbrestaurant.models.RegistrationClientModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -35,27 +36,31 @@ public class RegistrationClientController {
     void switchToHomeScene(ActionEvent event) throws IOException {
         registrationClientModel.switchToHomeScene(event);
     }
-    @FXML
-    void switchToClientMenuScene(ActionEvent event) throws IOException {
-        registrationClientModel.switchToMenuClientScene(event);
-    }
 
     @FXML
     void reg(ActionEvent event) {
         try {
             String name = nameField.getText();
-            String tax_id = taxIdField.getText();
+            String taxId = taxIdField.getText();
             String address = addressField.getText();
-            registrationClientModel.createReg(name,tax_id, address);
-            registrationClientModel.switchToMenuClientScene(event);
+            if (registrationClientModel.createReg(taxId, name, address)) {
+                registrationClientModel.switchToMenuClientScene(event);
+            }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            showError("IO Error", "An error occurred during the operation. Please try again.");
         }
+    }
+
+    private void showError(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
     void initialize() {
 
     }
-
 }

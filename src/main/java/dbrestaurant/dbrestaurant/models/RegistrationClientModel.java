@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -46,24 +47,31 @@ public class RegistrationClientModel {
         stage.show();
     }
 
-    public void createReg(String tax_id, String name, String address) {
+    public boolean createReg(String taxId, String name, String address) {
+        if (taxId.isEmpty() || name.isEmpty() || address.isEmpty()) {
+            showAlert("Validation Error", "Все поля должны быть заполнены");
+            return false;
+        }
+
         ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO clients (tax_id, name, address) VALUES (?,?,?)");
-            preparedStatement.setString(1, tax_id);
+            preparedStatement.setString(1, taxId);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, address);
             preparedStatement.executeUpdate();
 
             preparedStatement = connection.prepareStatement("SELECT id FROM clients WHERE tax_id = ?");
-            preparedStatement.setString(1, tax_id);
+            preparedStatement.setString(1, taxId);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 int clientId = resultSet.getInt("id");
                 SingleWrapper.getInstance().setId(clientId);
             }
+            return true;
         } catch (SQLException e) {
             System.out.println("Ошибка" + e.getMessage());
+            return false;
         } finally {
             if (resultSet != null) {
                 try {
@@ -80,5 +88,13 @@ public class RegistrationClientModel {
                 }
             }
         }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
