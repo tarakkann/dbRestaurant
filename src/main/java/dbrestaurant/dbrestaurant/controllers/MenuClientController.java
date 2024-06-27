@@ -53,6 +53,10 @@ public class MenuClientController {
     void switchToTablesScene(ActionEvent event) throws IOException {
         menuClientModel.switchToTablesScene(event);
     }
+    @FXML
+    void switchToContactPage(ActionEvent event) throws IOException {
+        menuClientModel.switchToContactPage(event);
+    }
 
     @FXML
     void initialize() {

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #403F48;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbrestaurant.dbrestaurant.controllers.ContactController">
+    <AnchorPane layoutX="-14.0" layoutY="90.0" prefHeight="511.0" prefWidth="1018.0" style="-fx-background-color: FAF8F5;">
+        <Text fill="#596c68" layoutX="287.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Контактные данные" wrappingWidth="406.66658528645837">
+            <font>
+                <Font name="Century Gothic" size="40.0" />
+            </font>
+        </Text>
+      <Text fill="#596c68" layoutX="75.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адрес ресторана">
+         <font>
+            <Font name="Century Gothic" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#101413" layoutX="75.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ул. Примерная, д. 123, г. Москва, Россия, 101000">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#596c68" layoutX="75.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Телефон">
+         <font>
+            <Font name="Century Gothic" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#101413" layoutX="75.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+7 (495) 123-45-67">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#596c68" layoutX="75.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Электронная почта">
+         <font>
+            <Font name="Century Gothic" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#101413" layoutX="75.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="info@restaurant-example.com">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#596c68" layoutX="537.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Время работы">
+         <font>
+            <Font name="Century Gothic" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#101413" layoutX="537.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Понедельник - Пятница: 10:00 - 23:00 Суббота - Воскресенье: 12:00 - 01:00" wrappingWidth="312.0911865234375">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#596c68" layoutX="537.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Как добраться">
+         <font>
+            <Font name="Century Gothic" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#101413" layoutX="537.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Наш ресторан находится в центре города, рядом с остановкой метро &quot;Примерная&quot;. Вы можете воспользоваться общественным транспортом или приехать на автомобиле, для которого предусмотрена парковка." wrappingWidth="406.66658528645826">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="backButton" layoutX="75.0" layoutY="430.0" mnemonicParsing="false" onAction="#switchToClientMenuScene" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #596c68;" text="Назад" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="19.0" />
+         </font>
+      </Button>
+    </AnchorPane>
+    <Text fill="WHITE" layoutX="281.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
+        <font>
+            <Font name="Century Gothic Bold" size="40.0" />
+        </font>
+    </Text>
+</AnchorPane>

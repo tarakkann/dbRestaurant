@@ -32,7 +32,7 @@
             <Font name="Century Gothic" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="contactPage" layoutX="766.0" layoutY="448.0" mnemonicParsing="false" style="-fx-border-color: #596C68; -fx-background-color: FAF8F5;" text="Контактные данные" textFill="#145339">
+      <Button fx:id="contactPage" layoutX="766.0" layoutY="448.0" mnemonicParsing="false" onAction="#switchToContactPage" style="-fx-border-color: #596C68; -fx-background-color: FAF8F5;" text="Контактные данные" textFill="#145339">
          <font>
             <Font name="Century Gothic" size="20.0" />
          </font>
