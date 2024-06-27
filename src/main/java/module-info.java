@@ -11,6 +11,7 @@ module dbrestaurant.dbrestaurant {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires java.desktop;
 
     opens dbrestaurant.dbrestaurant to javafx.fxml;
     exports dbrestaurant.dbrestaurant;

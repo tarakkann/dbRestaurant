@@ -48,11 +48,19 @@ public class RegistrationWaiterModel {
 
     public boolean createReg(String name, String address, String phone) {
         if (name.isEmpty() || address.isEmpty() || phone.isEmpty()) {
-            showAlert("Error", "Все поля должны быть заполнены");
+            showAlert("Ошибка", "Все поля должны быть заполнены");
             return false;
         }
         ResultSet resultSet = null;
         try {
+            preparedStatement = connection.prepareStatement("SELECT id FROM waiters WHERE phone_number = ?");
+            preparedStatement.setString(1, phone);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                showAlert("Ошибка", "Такой номер уже существует");
+                return false;
+            }
+
             preparedStatement = connection.prepareStatement("INSERT INTO waiters (name, address, phone_number) VALUES (?,?,?)");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, address);

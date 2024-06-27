@@ -55,11 +55,21 @@ public class RegistrationClientModel {
 
         ResultSet resultSet = null;
         try {
+            preparedStatement = connection.prepareStatement("SELECT id FROM clients WHERE tax_id = ?");
+            preparedStatement.setString(1, taxId);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+
+                showAlert("Ошибка", "Такой ИНН уже существует");
+                return false;
+            }
+
             preparedStatement = connection.prepareStatement("INSERT INTO clients (tax_id, name, address) VALUES (?,?,?)");
             preparedStatement.setString(1, taxId);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, address);
             preparedStatement.executeUpdate();
+
             preparedStatement = connection.prepareStatement("SELECT id FROM clients WHERE tax_id = ?");
             preparedStatement.setString(1, taxId);
             resultSet = preparedStatement.executeQuery();
