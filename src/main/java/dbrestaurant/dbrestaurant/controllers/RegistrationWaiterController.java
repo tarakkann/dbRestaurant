@@ -42,11 +42,6 @@ public class RegistrationWaiterController {
     }
 
     @FXML
-    void switchToMenuScene(ActionEvent event) throws IOException {
-        registrationWaiterModel.switchToMenuScene(event);
-    }
-
-    @FXML
     void initialize() {
     }
 

@@ -32,7 +32,7 @@
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="changeData" layoutX="779.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="222.0" style="-fx-border-color: #596C68; -fx-background-color: FAF8F5;" text="Изменить данные" textFill="#374c3c">
+        <Button fx:id="changeData" layoutX="779.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToChangeWaiterDataScene" prefHeight="36.0" prefWidth="222.0" style="-fx-border-color: #596C68; -fx-background-color: FAF8F5;" text="Изменить данные" textFill="#374c3c">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>

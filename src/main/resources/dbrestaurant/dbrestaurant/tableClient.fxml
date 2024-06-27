@@ -20,6 +20,11 @@
                 <TableColumn fx:id="maxCapacityColumn" prefWidth="182.0" text="Максимальная вместимость" />
             </columns>
         </TableView>
+      <Text fill="#506b5d" layoutX="495.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Столики">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
     </AnchorPane>
     <Text fill="WHITE" layoutX="244.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ресторан &quot;Когти и точка&quot;">
         <font>

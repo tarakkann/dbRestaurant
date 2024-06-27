@@ -30,8 +30,6 @@ public class ContactController {
 
     @FXML
     void initialize() {
-        assert backButton != null : "fx:id=\"backButton\" was not injected: check your FXML file 'concatpage.fxml'.";
-
     }
 
 }

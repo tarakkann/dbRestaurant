@@ -133,6 +133,9 @@ public class MenuController {
     @FXML
     void switchToDishCompositionScene(ActionEvent event) throws IOException {
         menuModel.switchToDishCompositionScene(event);
+    }@FXML
+    void switchToChangeWaiterDataScene(ActionEvent event) throws IOException {
+        menuModel.switchToChangeWaiterDataScene(event);
     }
 
 }

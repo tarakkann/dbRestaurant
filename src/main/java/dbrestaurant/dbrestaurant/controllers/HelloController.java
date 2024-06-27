@@ -51,8 +51,8 @@ public class HelloController {
 
     @FXML
     void login(ActionEvent event) throws IOException {
-        String phone = loginField1.getText();
         String name = loginField.getText();
+        String phone = loginField1.getText();
         if (helloModel.createLog(name, phone)) {
             Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menu.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

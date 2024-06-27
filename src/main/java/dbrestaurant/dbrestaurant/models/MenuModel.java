@@ -72,6 +72,13 @@ public class MenuModel {
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToChangeWaiterDataScene(ActionEvent event) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("changeWaiterData.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 }
