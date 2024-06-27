@@ -5,33 +5,25 @@ import dbrestaurant.dbrestaurant.SingleWrapper;
 import java.sql.*;
 import java.util.Collection;
 
-public class SignInModel {
-    Collection collection;
+public class HelloClientModel {
     PreparedStatement preparedStatement;
     Connection connection;
 
-    public SignInModel() {
+    public HelloClientModel() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/restaurant",
-                    "root", "");
-
-
-        } catch (SQLException | ClassNotFoundException e) {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant", "root", "");
+        }catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public boolean createLog(String name, String phone) {
+    public boolean createLog(String name, String tax_id) {
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM waiters WHERE name=? and phone_number=?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM clients WHERE name = ? and tax_id = ?");
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, phone);
-
+            preparedStatement.setString(2, tax_id);
             ResultSet rs = preparedStatement.executeQuery();
-
             if (rs.next()) {
                 Integer id = rs.getInt("id");
                 SingleWrapper.getInstance().setId(id);
@@ -39,9 +31,7 @@ public class SignInModel {
                 return true;
             } else
                 return false;
-
-
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

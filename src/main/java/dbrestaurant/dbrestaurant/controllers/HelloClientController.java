@@ -1,7 +1,11 @@
 package dbrestaurant.dbrestaurant.controllers;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import dbrestaurant.dbrestaurant.HelloApplication;
-import dbrestaurant.dbrestaurant.models.HelloModel;
+import dbrestaurant.dbrestaurant.models.HelloClientModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+public class HelloClientController {
 
-public class HelloController {
     @FXML
     private ResourceBundle resources;
 
@@ -27,7 +28,7 @@ public class HelloController {
     private TextField loginField;
 
     @FXML
-    private TextField loginField1;
+    private TextField loginField2;
 
     @FXML
     private Button lognSgnUBuon;
@@ -36,31 +37,31 @@ public class HelloController {
     private Button thSgnInButton;
 
 
+    HelloClientModel helloClientModel = new HelloClientModel();
     private Scene scene;
     private Stage stage;
 
-    public void switchToRegistrationScene(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("registrationWaiter.fxml"));
+    @FXML
+    void switchToRegistrationClientScene(ActionEvent event) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("registrationClient.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);
         stage.show();
     }
 
-    HelloModel helloModel = new HelloModel();
-
     @FXML
     void login(ActionEvent event) throws IOException {
-        String phone = loginField1.getText();
         String name = loginField.getText();
-        if (helloModel.createLog(name, phone)) {
-            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menu.fxml"));
+        String tax_id = loginField2.getText();
+        if (helloClientModel.createLog(name, tax_id)) {
+            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menuClient.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);
             stage.show();
         } else {
-            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("registrationWaiter.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("registrationClient.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);

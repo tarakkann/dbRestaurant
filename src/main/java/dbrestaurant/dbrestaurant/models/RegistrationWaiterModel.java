@@ -12,14 +12,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 
-public class RegistrationModel {
+public class RegistrationWaiterModel {
     private Stage stage;
     private Scene scene;
 
     private Connection connection;
     private PreparedStatement preparedStatement;
 
-    public RegistrationModel() {
+    public RegistrationWaiterModel() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
@@ -31,7 +31,7 @@ public class RegistrationModel {
     }
 
     public void switchToHomeScene(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("seperateroles.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);
@@ -64,7 +64,7 @@ public class RegistrationModel {
                 SingleWrapper.getInstance().setId(waiterId);
             }
         } catch (SQLException e) {
-            System.out.println("Ошибка " + e.getMessage());
+            System.out.println("Ошибка" + e.getMessage());
         } finally {
             if (resultSet != null) {
                 try {

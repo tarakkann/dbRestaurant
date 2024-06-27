@@ -135,4 +135,6 @@ public class MenuController {
         menuModel.switchToDishCompositionScene(event);
     }
 
+    public static class RegistrationWaiterController {
+    }
 }
