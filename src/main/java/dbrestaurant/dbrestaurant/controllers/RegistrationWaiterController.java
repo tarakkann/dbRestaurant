@@ -55,7 +55,7 @@ public class RegistrationWaiterController {
                 registrationWaiterModel.switchToMenuScene(event);
             }
         } catch (IOException e) {
-            showError("IO Error", "An error occurred during the operation. Please try again.");
+            showError("Error", "Error");
         }
     }
 

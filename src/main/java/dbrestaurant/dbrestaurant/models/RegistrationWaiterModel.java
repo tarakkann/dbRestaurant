@@ -49,7 +49,7 @@ public class RegistrationWaiterModel {
 
     public boolean createReg(String name, String address, String phone) {
         if (name.isEmpty() || address.isEmpty() || phone.isEmpty()) {
-            showAlert("Validation Error", "Все поля должны быть заполнены");
+            showAlert("Error", "Все поля должны быть заполнены");
             return false;
         }
 
@@ -71,7 +71,7 @@ public class RegistrationWaiterModel {
             }
             return true; // Return true to indicate success
         } catch (SQLException e) {
-            System.out.println("Ошибка" + e.getMessage());
+            System.out.println("Error" + e.getMessage());
             return false; // Return false to indicate SQL error
         } finally {
             if (resultSet != null) {

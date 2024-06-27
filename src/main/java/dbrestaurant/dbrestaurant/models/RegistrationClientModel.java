@@ -49,7 +49,7 @@ public class RegistrationClientModel {
 
     public boolean createReg(String taxId, String name, String address) {
         if (taxId.isEmpty() || name.isEmpty() || address.isEmpty()) {
-            showAlert("Validation Error", "Все поля должны быть заполнены");
+            showAlert("Error", "Все поля должны быть заполнены");
             return false;
         }
 
