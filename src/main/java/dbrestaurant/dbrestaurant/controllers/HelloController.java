@@ -34,8 +34,6 @@ public class HelloController {
 
     @FXML
     private Button thSgnInButton;
-
-
     private Scene scene;
     private Stage stage;
 

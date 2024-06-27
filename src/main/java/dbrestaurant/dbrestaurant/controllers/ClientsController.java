@@ -119,7 +119,7 @@ public class ClientsController {
         try {
             clientList = clientsModel.getClientsList();
             clientsTable.setItems(clientList);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

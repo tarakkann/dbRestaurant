@@ -14,6 +14,7 @@ import java.io.IOException;
 public class SeparateRolesModel {
     private Stage stage;
     private Scene scene;
+
     public void switchToWaiterRegScene(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-viewWaiter.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

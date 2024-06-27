@@ -36,8 +36,6 @@ public class SeparateRolesController {
 
     @FXML
     void initialize() {
-
-
     }
 
 }

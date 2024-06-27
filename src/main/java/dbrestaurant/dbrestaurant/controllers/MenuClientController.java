@@ -3,6 +3,7 @@ package dbrestaurant.dbrestaurant.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import dbrestaurant.dbrestaurant.models.MenuClientModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,10 +54,12 @@ public class MenuClientController {
     void switchToTablesScene(ActionEvent event) throws IOException {
         menuClientModel.switchToTablesScene(event);
     }
+
     @FXML
     void switchToContactPage(ActionEvent event) throws IOException {
         menuClientModel.switchToContactPage(event);
     }
+
     @FXML
     void switchToChangeDataPage(ActionEvent event) throws IOException {
         menuClientModel.switchToChangeDataPage(event);

@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dbrestaurant.dbrestaurant.DiningTables;
-import dbrestaurant.dbrestaurant.Dishes;
 import dbrestaurant.dbrestaurant.models.DinTableClientModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,7 +29,7 @@ public class DinTableClientController {
 
     @FXML
     private TableView<DiningTables> dinTableTable;
-    private ObservableList <DiningTables> diningTablesList;
+    private ObservableList<DiningTables> diningTablesList;
 
     @FXML
     private TableColumn<DiningTables, Integer> maxCapacityColumn;

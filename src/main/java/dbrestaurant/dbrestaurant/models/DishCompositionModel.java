@@ -80,6 +80,7 @@ public class DishCompositionModel {
         pst.close();
         connection.close();
     }
+
     public void deleteDishComposition(int dish_id, int ingredient_id) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
         String sql = "DELETE FROM dishcomposition WHERE dish_id = ? AND ingredient_id = ?";

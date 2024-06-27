@@ -45,7 +45,8 @@ public class DinTableClientModel {
         PreparedStatement pst = connection.prepareStatement(query);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
-            diningTablesList.add(new DiningTables(rs.getInt("id"), rs.getInt("max_capacity")));
+            diningTablesList.add(new DiningTables(rs.getInt("id"),
+                    rs.getInt("max_capacity")));
         }
         rs.close();
         pst.close();

@@ -9,6 +9,7 @@ import dbrestaurant.dbrestaurant.SingleWrapper;
 import dbrestaurant.dbrestaurant.models.ChangeClientDataModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -43,6 +44,7 @@ public class ChangeClientDataController {
         String clientAddress = address.getText();
         String clientTaxId = tax_id.getText();
         changeClientDataModel.changeData(id, clientTaxId, clientName, clientAddress);
+        showAlert("Успех", "Данные успешно изменены.");
     }
 
     @FXML
@@ -52,8 +54,13 @@ public class ChangeClientDataController {
 
     @FXML
     void initialize() {
-
-
     }
 
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

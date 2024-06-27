@@ -25,6 +25,7 @@ public class ChangeClientDataModel {
         stage.setScene(scene);
         stage.show();
     }
+
     public void changeData(Integer id, String tax_id, String name, String address) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
         String sql = "UPDATE clients SET tax_id = ?, name = ?, address = ? WHERE id = ?";

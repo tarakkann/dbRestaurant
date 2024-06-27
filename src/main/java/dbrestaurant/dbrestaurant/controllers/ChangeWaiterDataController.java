@@ -9,6 +9,7 @@ import dbrestaurant.dbrestaurant.SingleWrapper;
 import dbrestaurant.dbrestaurant.models.ChangeWaiterDataModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -43,8 +44,8 @@ public class ChangeWaiterDataController {
 
     @FXML
     void initialize() {
-
     }
+
     @FXML
     void changeData() throws SQLException, ClassNotFoundException {
         Integer id = SingleWrapper.getInstance().getId();
@@ -52,6 +53,14 @@ public class ChangeWaiterDataController {
         String waiterAddress = address.getText();
         String waiterPhoneNumber = phone_number.getText();
         changeWaiterDataModel.changeData(id, waiterName, waiterAddress, waiterPhoneNumber);
+        showAlert("Успех", "Данные успешно изменены.");
     }
 
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

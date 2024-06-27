@@ -107,13 +107,14 @@ public class DishCompositionController {
             throw new RuntimeException(e);
         }
     }
+
     @FXML
     void deleteDishComposition() throws SQLException, ClassNotFoundException {
-        dishCompositionModel.deleteDishComposition(Integer.parseInt(dishId.getText()),Integer.parseInt(ingredientId.getText()));
+        dishCompositionModel.deleteDishComposition(Integer.parseInt(dishId.getText()), Integer.parseInt(ingredientId.getText()));
         try {
             dishCompositionsList = dishCompositionModel.getDishCompositions();
             dishCompositionTable.setItems(dishCompositionsList);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

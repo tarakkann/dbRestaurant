@@ -7,6 +7,15 @@ public class FoodIntakes {
     String start_time;
     String end_time;
     int client_id;
+    public FoodIntakes(int id, int table_id, int waiter_id, String start_time,
+                                      String end_time, int client_id) {
+        this.id = id;
+        this.table_id = table_id;
+        this.waiter_id = waiter_id;
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.client_id = client_id;
+    }
 
     public int getId() {
         return id;
@@ -56,13 +65,5 @@ public class FoodIntakes {
         this.client_id = client_id;
     }
 
-    public FoodIntakes(int id, int table_id, int waiter_id, String start_time,
-                       String end_time, int client_id) {
-        this.id = id;
-        this.table_id = table_id;
-        this.waiter_id = waiter_id;
-        this.start_time = start_time;
-        this.end_time = end_time;
-        this.client_id = client_id;
-    }
+
 }

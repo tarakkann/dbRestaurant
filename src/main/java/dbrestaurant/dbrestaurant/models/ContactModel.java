@@ -13,6 +13,7 @@ import java.io.IOException;
 public class ContactModel {
     private Stage stage;
     private Scene scene;
+
     public void switchToClientMenuScene(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menuClient.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

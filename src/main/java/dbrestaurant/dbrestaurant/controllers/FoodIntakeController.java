@@ -131,13 +131,14 @@ public class FoodIntakeController {
     void switchToMenuScene(ActionEvent event) throws IOException {
         foodIntakeModel.switchToMenuScene(event);
     }
+
     @FXML
     void deleteFoodIntake() throws SQLException, ClassNotFoundException {
         foodIntakeModel.deleteFoodIntake(Integer.parseInt(foodIntakeId.getText()));
         try {
             foodIntakeList = foodIntakeModel.getFoodIntakes();
             foodIntakeTable.setItems(foodIntakeList);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

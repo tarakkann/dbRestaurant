@@ -121,7 +121,7 @@ public class ClientOrdersController {
         try {
             clientOrdersList = clientOrdersModel.getClientOrders();
             clientOrdersTable.setItems(clientOrdersList);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

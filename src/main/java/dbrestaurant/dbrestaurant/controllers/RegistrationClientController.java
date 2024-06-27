@@ -61,6 +61,5 @@ public class RegistrationClientController {
 
     @FXML
     void initialize() {
-
     }
 }

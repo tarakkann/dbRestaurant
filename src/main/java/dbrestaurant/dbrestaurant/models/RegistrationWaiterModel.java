@@ -16,7 +16,6 @@ import java.sql.*;
 public class RegistrationWaiterModel {
     private Stage stage;
     private Scene scene;
-
     private Connection connection;
     private PreparedStatement preparedStatement;
 
@@ -52,7 +51,6 @@ public class RegistrationWaiterModel {
             showAlert("Error", "Все поля должны быть заполнены");
             return false;
         }
-
         ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO waiters (name, address, phone_number) VALUES (?,?,?)");
@@ -69,10 +67,10 @@ public class RegistrationWaiterModel {
                 int waiterId = resultSet.getInt("id");
                 SingleWrapper.getInstance().setId(waiterId);
             }
-            return true; // Return true to indicate success
+            return true;
         } catch (SQLException e) {
             System.out.println("Error" + e.getMessage());
-            return false; // Return false to indicate SQL error
+            return false;
         } finally {
             if (resultSet != null) {
                 try {

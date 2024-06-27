@@ -60,7 +60,6 @@ public class RegistrationClientModel {
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, address);
             preparedStatement.executeUpdate();
-
             preparedStatement = connection.prepareStatement("SELECT id FROM clients WHERE tax_id = ?");
             preparedStatement.setString(1, taxId);
             resultSet = preparedStatement.executeQuery();

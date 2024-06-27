@@ -97,13 +97,14 @@ public class DishController {
     void switchToMenuScene(ActionEvent event) throws IOException {
         dishModel.switchToMenuScene(event);
     }
+
     @FXML
     void deleteDish() throws SQLException, ClassNotFoundException {
         dishModel.deleteDish(Integer.parseInt(dishId.getText()));
         try {
             dishList = dishModel.getDishes();
             dishTable.setItems(dishList);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

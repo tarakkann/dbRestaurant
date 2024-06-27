@@ -114,13 +114,14 @@ public class IngridientsController {
     void switchToMenuScene(ActionEvent event) throws IOException {
         ingridientsModel.switchToMenuScene(event);
     }
+
     @FXML
     void deleteIngredient() throws SQLException, ClassNotFoundException {
         ingridientsModel.deleteIngredient(Integer.parseInt(ingridientId.getText()));
         try {
             ingredientsList = ingridientsModel.getIngridients();
             IngridientTable.setItems(ingredientsList);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

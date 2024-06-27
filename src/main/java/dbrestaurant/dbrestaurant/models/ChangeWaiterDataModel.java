@@ -25,6 +25,7 @@ public class ChangeWaiterDataModel {
         stage.setScene(scene);
         stage.show();
     }
+
     public void changeData(Integer id, String name, String address, String phone_number) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
         String sql = "UPDATE waiters SET name = ?, address = ?, phone_number = ? WHERE id = ?";

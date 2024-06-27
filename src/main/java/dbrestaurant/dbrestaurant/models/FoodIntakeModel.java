@@ -74,6 +74,7 @@ public class FoodIntakeModel {
         pst.close();
         connection.close();
     }
+
     public void deleteFoodIntake(int id) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
         String sql = "DELETE FROM foodintake WHERE id = ?";

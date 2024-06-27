@@ -68,5 +68,4 @@ public class HelloClientController {
             stage.show();
         }
     }
-
 }

@@ -8,6 +8,7 @@ public class Dishes {
         this.dish_id = dish_id;
         this.name = name;
     }
+
     public int getDish_id() {
         return dish_id;
     }
@@ -23,7 +24,6 @@ public class Dishes {
     public void setName(String name) {
         this.name = name;
     }
-
 
 }
 

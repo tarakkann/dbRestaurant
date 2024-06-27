@@ -49,6 +49,7 @@ public class MenuClientModel {
         stage.setScene(scene);
         stage.show();
     }
+
     public void switchToContactPage(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("concatpage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

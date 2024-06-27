@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.input.MouseEvent;
 
 public class DishClientController {
 
@@ -34,11 +33,9 @@ public class DishClientController {
 
     @FXML
     private TableView<Dishes> dishTable;
-    private final  DishClientModel dishClientModel = new DishClientModel();
+    private final DishClientModel dishClientModel = new DishClientModel();
     private ObservableList<Dishes> dishList;
-
     private final DishModel dishModel = new DishModel();
-
 
     @FXML
     void switchToClientMenuScene(ActionEvent event) throws IOException {
@@ -55,5 +52,4 @@ public class DishClientController {
             throw new RuntimeException(e);
         }
     }
-
 }
