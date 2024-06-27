@@ -22,7 +22,7 @@ public class SeparateRolesController {
 
     @FXML
     private Button waiterRegButton;
-    SeparateRolesModel separateRolesModel = new SeparateRolesModel();
+    private final SeparateRolesModel separateRolesModel = new SeparateRolesModel();
 
     @FXML
     void switchToWaiterRegScene(ActionEvent event) throws IOException {

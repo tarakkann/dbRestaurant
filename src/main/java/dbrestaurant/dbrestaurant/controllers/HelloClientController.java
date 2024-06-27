@@ -37,7 +37,7 @@ public class HelloClientController {
     private Button thSgnInButton;
 
 
-    HelloClientModel helloClientModel = new HelloClientModel();
+    private final HelloClientModel helloClientModel = new HelloClientModel();
     private Scene scene;
     private Stage stage;
 

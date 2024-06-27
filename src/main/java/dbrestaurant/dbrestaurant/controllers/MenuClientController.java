@@ -32,7 +32,7 @@ public class MenuClientController {
 
     @FXML
     private Button dishCompositionButton;
-    MenuClientModel menuClientModel = new MenuClientModel();
+    private final MenuClientModel menuClientModel = new MenuClientModel();
 
     @FXML
     void switchToDishCompositionScene(ActionEvent event) throws IOException {

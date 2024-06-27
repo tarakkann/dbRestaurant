@@ -36,6 +36,7 @@ public class HelloController {
     private Button thSgnInButton;
     private Scene scene;
     private Stage stage;
+    private final HelloModel helloModel = new HelloModel();
 
     public void switchToRegistrationScene(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("registrationWaiter.fxml"));
@@ -44,8 +45,6 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
     }
-
-    HelloModel helloModel = new HelloModel();
 
     @FXML
     void login(ActionEvent event) throws IOException {

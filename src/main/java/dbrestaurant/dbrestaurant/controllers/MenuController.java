@@ -91,14 +91,12 @@ public class MenuController {
     public void setIngridientList(Button ingridientList) {
         this.ingridientList = ingridientList;
     }
-
+    private final MenuModel menuModel = new MenuModel();
 
     @FXML
     void initialize() {
 
     }
-
-    MenuModel menuModel = new MenuModel();
 
     @FXML
     void switchToHelloScene(ActionEvent event) throws IOException {

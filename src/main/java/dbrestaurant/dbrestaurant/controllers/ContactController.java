@@ -18,7 +18,7 @@ public class ContactController {
 
     @FXML
     private Button backButton;
-    ContactModel contactModel = new ContactModel();
+    private final ContactModel contactModel = new ContactModel();
 
     @FXML
     void switchToClientMenuScene(ActionEvent event) throws IOException {
