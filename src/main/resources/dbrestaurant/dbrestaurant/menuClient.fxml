@@ -17,7 +17,7 @@
                 <Font name="Century Gothic" size="42.0" />
             </font>
         </Text>
-        <Button fx:id="createDish" layoutX="125.0" layoutY="143.0" mnemonicParsing="false" onAction="#switchToDishScene" style="-fx-background-color: #596C68;" text="Список блюд" textFill="WHITE">
+        <Button fx:id="createDish" layoutX="309.0" layoutY="173.0" mnemonicParsing="false" onAction="#switchToDishScene" style="-fx-background-color: #596C68;" text="Список блюд" textFill="WHITE">
             <font>
                 <Font name="Century Gothic" size="19.0" />
             </font>
@@ -27,14 +27,14 @@
                 <Font name="Century Gothic" size="19.0" />
             </font>
         </Button>
-        <Button fx:id="dishCompositionButton" layoutX="315.0" layoutY="143.0" mnemonicParsing="false" onAction="#switchToDishCompositionScene" style="-fx-background-color: #596C68;" text="Состав блюд" textFill="WHITE">
-            <font>
-                <Font name="Century Gothic" size="19.0" />
-            </font>
-        </Button>
-      <Button fx:id="didngTables" layoutX="125.0" layoutY="212.0" mnemonicParsing="false" onAction="#switchToTablesScene" style="-fx-background-color: #596C68;" text="Список столиков" textFill="WHITE">
+      <Button fx:id="didngTables" layoutX="571.0" layoutY="173.0" mnemonicParsing="false" onAction="#switchToTablesScene" style="-fx-background-color: #596C68;" text="Список столиков" textFill="WHITE">
          <font>
             <Font name="Century Gothic" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="contactPage" layoutX="766.0" layoutY="448.0" mnemonicParsing="false" style="-fx-border-color: #596C68; -fx-background-color: FAF8F5;" text="Контактные данные" textFill="#145339">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
          </font>
       </Button>
     </AnchorPane>
