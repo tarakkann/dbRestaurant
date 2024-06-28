@@ -6,8 +6,6 @@ public class SingleWrapper {
     public static SingleWrapper getInstance() {
         return instance;
     }
-
-
     private Integer id;
     private boolean isClient;
 
@@ -26,5 +24,4 @@ public class SingleWrapper {
     public void setIsClient(boolean isClient) {
         this.isClient = isClient;
     }
-
 }

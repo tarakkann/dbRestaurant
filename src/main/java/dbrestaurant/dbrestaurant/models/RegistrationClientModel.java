@@ -59,7 +59,6 @@ public class RegistrationClientModel {
             preparedStatement.setString(1, taxId);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-
                 showAlert("Ошибка", "Такой ИНН уже существует");
                 return false;
             }
