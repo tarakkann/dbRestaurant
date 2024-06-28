@@ -44,7 +44,7 @@ public class DishCompositionModel {
     public ObservableList<DishComposition> getDishCompositions() throws SQLException, ClassNotFoundException {
         ObservableList<DishComposition> dishList = FXCollections.observableArrayList();
         Connection connection = DataConnection.getDBConnection();
-        String query = "SELECT * FROM dishcomposition";
+        String query = "SELECT * FROM dishcompositions";
         PreparedStatement pst = connection.prepareStatement(query);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
@@ -59,7 +59,7 @@ public class DishCompositionModel {
 
     public void addDishComposition(int dish_id, int ingredient_id, double quantity) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "INSERT INTO dishcomposition (dish_id, ingredient_id, quantity) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO dishcompositions (dish_id, ingredient_id, quantity) VALUES (?, ?, ?)";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setInt(1, dish_id);
         pst.setInt(2, ingredient_id);
@@ -71,7 +71,7 @@ public class DishCompositionModel {
 
     public void updateDish(int dish_id, int ingredient_id, double quantity) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "UPDATE dishcomposition SET quantity = ? WHERE dish_id = ? AND ingredient_id = ?";
+        String sql = "UPDATE dishcompositions SET quantity = ? WHERE dish_id = ? AND ingredient_id = ?";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setDouble(1, quantity);
         pst.setInt(2, dish_id);
@@ -83,7 +83,7 @@ public class DishCompositionModel {
 
     public void deleteDishComposition(int dish_id, int ingredient_id) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "DELETE FROM dishcomposition WHERE dish_id = ? AND ingredient_id = ?";
+        String sql = "DELETE FROM dishcompositions WHERE dish_id = ? AND ingredient_id = ?";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setInt(1, dish_id);
         pst.setInt(2, ingredient_id);

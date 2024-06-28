@@ -33,7 +33,7 @@ public class FoodIntakeModel {
     public ObservableList<FoodIntakes> getFoodIntakes() throws SQLException, ClassNotFoundException {
         ObservableList<FoodIntakes> foodIntakeList = FXCollections.observableArrayList();
         Connection connection = DataConnection.getDBConnection();
-        String query = "SELECT * FROM foodintake";
+        String query = "SELECT * FROM foodintakes";
         PreparedStatement pst = connection.prepareStatement(query);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
@@ -48,7 +48,7 @@ public class FoodIntakeModel {
 
     public void addFoodIntake(String table_id, String waiter_id, String start_time, String end_time, String client_id) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "INSERT INTO foodintake (table_id, waiter_id, start_time, end_time, client_id) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO foodintakes (table_id, waiter_id, start_time, end_time, client_id) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setInt(1, Integer.parseInt(table_id));
         pst.setInt(2, Integer.parseInt(waiter_id));
@@ -62,7 +62,7 @@ public class FoodIntakeModel {
 
     public void updateFoodIntake(String id, String table_id, String waiter_id, String start_time, String end_time, String client_id) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "UPDATE foodintake SET table_id = ?, waiter_id = ?, start_time = ?, end_time = ?, client_id = ? WHERE id = ?";
+        String sql = "UPDATE foodintakes SET table_id = ?, waiter_id = ?, start_time = ?, end_time = ?, client_id = ? WHERE id = ?";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setInt(1, Integer.parseInt(table_id));
         pst.setInt(2, Integer.parseInt(waiter_id));
@@ -77,7 +77,7 @@ public class FoodIntakeModel {
 
     public void deleteFoodIntake(int id) throws SQLException, ClassNotFoundException {
         Connection connection = DataConnection.getDBConnection();
-        String sql = "DELETE FROM foodintake WHERE id = ?";
+        String sql = "DELETE FROM foodintakes WHERE id = ?";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setInt(1, id);
         pst.executeUpdate();
